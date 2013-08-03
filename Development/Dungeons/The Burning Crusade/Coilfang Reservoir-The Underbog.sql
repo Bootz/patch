@@ -1,4 +1,4 @@
-/* Copyright (C) 11 April 2011-2012 patch Project 
+/* Copyright (C) 11 April 2011-2013 patch Project 
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3 of the License, or
