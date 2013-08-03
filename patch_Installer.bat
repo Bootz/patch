@@ -25,13 +25,13 @@ echo .
 echo    ````````````$````````$
 echo    ````````````$````````$  *SmartAI Lab scripts*
 echo    $$$```$$$``$$$``$$$``$
-echo    $``$`````$``$``$```$`$$$$$    WotLK v3.3.5a
-echo    $$$```$$$$``$``$`````$```$          for Trinity Core
+echo    $``$`````$``$``$```$`$$$$$    Cataclysm 4.3.4 (15595)
+echo    $$$```$$$$``$``$`````$```$          for Trinity Core based
 echo    $````$```$``$``$```$`$```$         
 echo    $`````$$$$``$$``$$$``$```$ 
 echo.
-echo Credits to: Zic24,Verron,DeftaL,Rubill,Nex20,Zippo,JuKoT,melk,SuuZeR 
-echo Project owner: cooler 
+echo Credits to: Zic24,Verron,DeftaL,Rubill,Nex20,Zippo,JuKoT,melk,SuuZeR,Piro,Alex 
+echo Project owner: cooler-SAI
 echo                            Powered by SmartAI Engine
 echo.
 set /p svr=What is your MySQL host name?           [localhost]   : 

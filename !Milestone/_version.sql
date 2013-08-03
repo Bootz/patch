@@ -1,2 +1,2 @@
-UPDATE `version` SET `db_version`=('SkyFire DB NG Release & "patch" SmartAI Lab 406.02');
+UPDATE `version` SET `db_version`=('Cataclysm DB & "patch" SmartAI Lab 434.01');
 
