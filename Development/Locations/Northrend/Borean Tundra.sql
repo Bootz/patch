@@ -1,4 +1,4 @@
-/* Copyright (C) 11 April 2011-2012 patch Project 
+/* Copyright (C) 11 April 2011-2013 patch Project 
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3 of the License, or
@@ -621,7 +621,6 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 SET @ENTRY := 15483;
 UPDATE `creature_template` SET `AIName`='0' WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
-DELETE FROM `creature_ai_scripts` WHERE `creature_id`=@ENTRY;
 UPDATE `creature_template` SET `spell1`='96004' WHERE `entry`=@ENTRY;
 
 -- Justicar Julia Celeste

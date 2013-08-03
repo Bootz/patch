@@ -1,4 +1,4 @@
-/* Copyright (C) 11 April 2011-2012 patch Project 
+/* Copyright (C) 11 April 2011-2013 patch Project 
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3 of the License, or
@@ -170,7 +170,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,2,0,0,0,100,0,3000,5500,17000,19000,11,79863,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Hemorrhage'),
 (@ENTRY,0,3,0,2,0,100,0,0,50,12000,13000,11,79864,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Shadowstep at 50% HP');
 
-Commander Fastfuse
+-- Commander Fastfuse
 
 
 
