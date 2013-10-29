@@ -407,7 +407,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,0,1,4,0,100,3,0,0,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving on Aggro'),
 (@ENTRY,0,1,2,61,0,100,3,0,0,0,0,11,40873,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Shoot on Aggro'),
 (@ENTRY,0,2,3,61,0,100,3,0,0,0,0,20,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Melee Attack on Aggro'),
-(@ENTRY,0,3,0,61,0,100,3,0,0,0,0,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 on Aggro'),
+(@ENTRY,0,3,19,61,0,100,3,0,0,0,0,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 on Aggro'),
 (@ENTRY,0,4,5,9,1,100,2,5,30,2300,3900,11,40873,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Shoot'),
 (@ENTRY,0,5,0,61,1,100,2,0,0,0,0,40,2,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Ranged Weapon Model'),
 (@ENTRY,0,6,7,9,1,100,2,30,80,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving when not in Shoot Range'),
@@ -420,7 +420,9 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,13,0,61,1,100,2,0,0,0,0,40,2,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Ranged Weapon Model at 25 Yards'),
 (@ENTRY,0,14,15,7,1,100,3,0,0,0,0,40,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Melee Weapon Model on Evade'),
 (@ENTRY,0,15,0,61,1,100,3,0,0,0,0,22,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Reset on Evade'),
-(@ENTRY,0,16,0,0,1,100,2,7000,11000,12000,16000,11,40872,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Immolation Arrow');
+(@ENTRY,0,16,0,0,1,100,2,7000,11000,12000,16000,11,40872,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Immolation Arrow'),
+(@ENTRY,0,17,0,6,1,100,3,0,0,0,0,43,0,0,0,0,0,0,4,0,0,0,0,0,0,0,'Dismount on Death'),
+(@ENTRY,0,19,0,61,0,100,3,0,0,0,0,19,0x02000000,0,0,0,0,0,1,0,0,0,0,0,0,0,'Remove Unit Flag on Aggro');
 
 -- Dragonmaw Wind Reaver
 SET @ENTRY := 23330;
