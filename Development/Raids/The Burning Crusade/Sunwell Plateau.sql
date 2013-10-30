@@ -72,7 +72,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,1,0,9,0,100,2,0,5,7000,10000,11,40504,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Cleave on Close'),
 (@ENTRY,0,2,0,0,0,100,2,14000,25000,18000,26000,11,45029,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Corrupting Strike'),
 (@ENTRY,0,3,0,0,0,100,2,5000,11000,14000,18000,11,46283,0,0,0,0,0,4,0,0,0,0,0,0,0,'Cast Death Coil'),
-(@ENTRY,0,3,0,2,0,100,3,0,20,0,0,11,46287,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Infernal Defense at 20% HP');
+(@ENTRY,0,4,0,2,0,100,3,0,20,0,0,11,46287,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Infernal Defense at 20% HP');
 
 -- Cataclysm Hound
 SET @ENTRY := 25599;
