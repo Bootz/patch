@@ -1276,6 +1276,32 @@ DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,0,0,0,0,100,0,3500,4500,12000,13000,11,32914,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Wing Buffet');
 
+-- Maxnar the Ashmaw <Wyrmcult Patriarch>
+SET @ENTRY := 21389;
+UPDATE `creature_template` SET `AIName`='SmartAI' WHERE `entry`=@ENTRY;
+DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
+INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
+(@ENTRY,0,0,0,9,0,100,0,0,5,8000,9000,11,15284,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Cleave on Close'),
+(@ENTRY,0,1,0,0,0,100,0,8000,8000,22000,24000,11,37638,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Flame Breath'),
+(@ENTRY,0,2,0,0,0,100,0,4000,5000,12000,16000,11,32736,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Mortal Strike');
+
+-- Misha
+SET @ENTRY := 10204;
+UPDATE `creature_template` SET `AIName`='SmartAI' WHERE `entry`=@ENTRY;
+DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
+INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
+(@ENTRY,0,0,0,0,0,100,0,2000,4500,12000,13000,11,17156,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Maul'),
+(@ENTRY,0,1,0,0,0,100,0,8000,10000,19000,23000,11,6749,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Wide Swipe');
+
+-- Mo'arg Extractor
+SET @ENTRY := 22304;
+UPDATE `creature_template` SET `AIName`='SmartAI' WHERE `entry`=@ENTRY;
+DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
+INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
+(@ENTRY,0,0,0,0,0,100,0,8000,8000,22000,26000,11,40818,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Toxic Slime'),
+(@ENTRY,0,1,0,0,0,100,0,4000,5000,15000,15000,11,40839,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Drill'),
+(@ENTRY,0,2,0,2,0,100,1,0,30,0,0,11,40454,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Frighten at 30% HP');
+
 
 
 
