@@ -26,7 +26,7 @@ echo    ````````````$````````$
 echo    ````````````$````````$  *SmartAI Lab scripts*
 echo    $$$```$$$``$$$``$$$``$
 echo    $``$`````$``$``$```$`$$$$$    Cataclysm 4.3.4 (15595)
-echo    $$$```$$$$``$``$`````$```$          for Trinity Core based
+echo    $$$```$$$$``$``$`````$```$          for Trinity Database original
 echo    $````$```$``$``$```$`$```$         
 echo    $`````$$$$``$$``$$$``$```$ 
 echo.
