@@ -151,7 +151,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,8,0,3,2,100,0,0,15,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving at 15% Mana'),
 (@ENTRY,0,9,0,3,2,100,0,30,100,100,100,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 When Mana is above 30%'),
 (@ENTRY,0,10,0,0,1,100,0,6000,7000,33000,35000,11,34073,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Curse of the Bleeding Hollow'),
-(@ENTRY,0,11,0,1,0,100,1,3000,5000,0,0,11,34019,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Raise Dead on Spawn');
+(@ENTRY,0,11,0,5,1,100,0,0,0,0,0,11,34019,0,0,0,0,0,6,0,0,0,0,0,0,0,'Cast Raise Dead on Player Kill');
 
 -- Bleeding Hollow Tormentor
 SET @ENTRY := 19424;
