@@ -49,9 +49,9 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 SET @ENTRY := 23618;
 DELETE FROM `creature_text` WHERE `entry`=@ENTRY;
 INSERT INTO `creature_text` (`entry`,`groupid`,`id`,`text`,`type`,`language`,`probability`,`emote`,`duration`,`sound`,`comment`) VALUES
-(@ENTRY,0,0, 'Will you help me find my dog...?',12,0,50,0,0,0, 'say Text'),
-(@ENTRY,0,1, 'I miss my dog so much...',12,0,50,0,0,0, 'say Text'),
-(@ENTRY,0,2, 'Where is that dog?',12,0,50,0,0,0, 'say Text');
+(@ENTRY,0,0, 'Will you help me find my dog...?',12,0,50,1,0,0, 'say Text'),
+(@ENTRY,0,1, 'I miss my dog so much...',12,0,50,1,0,0, 'say Text'),
+(@ENTRY,0,2, 'Where is that dog?',12,0,50,1,0,0, 'say Text');
 
 -- Armored Battleboar
 SET @ENTRY := 36696;
