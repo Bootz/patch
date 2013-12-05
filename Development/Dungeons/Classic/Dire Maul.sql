@@ -106,21 +106,12 @@ DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
 UPDATE `creature_template` SET `AIName`='0' WHERE `entry`=@ENTRYTOTEM;
 UPDATE `creature_template` SET `spell1`=@TOTEMSPELL WHERE `entry`=@ENTRYTOTEM;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,4,0,100,3,0,0,0,0,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 on Aggro'),
-(@ENTRY,0,1,0,4,1,100,3,0,0,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving on Aggro'),
-(@ENTRY,0,2,0,4,1,100,3,0,0,0,0,11,15801,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt on Aggro'),
-(@ENTRY,0,3,0,9,1,100,2,0,40,3400,4700,11,15801,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt'),
-(@ENTRY,0,4,0,9,1,100,2,40,100,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving when not in bolt Range'),
-(@ENTRY,0,5,0,9,1,100,2,10,15,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving at 15 Yards'),
-(@ENTRY,0,6,0,9,1,100,2,0,40,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving when in bolt Range'),
-(@ENTRY,0,7,0,3,1,100,2,0,15,0,0,22,2,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 2 at 15% Mana'),
-(@ENTRY,0,8,0,3,2,100,2,0,15,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving at 15% Mana'),
-(@ENTRY,0,9,0,3,2,100,2,30,100,100,100,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 When Mana is above 30%'),
-(@ENTRY,0,10,0,0,1,100,2,9000,14000,15000,17000,11,16006,0,0,0,0,0,5,0,0,0,0,0,0,0,'Cast Chain Lightning'),
-(@ENTRY,0,11,0,0,1,100,2,7000,12000,35000,40000,11,8376,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Earthgrab Totem'),
-(@ENTRY,0,12,0,2,1,100,2,0,50,15000,22000,11,15982,1,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Healing Wave at 50% HP'),
-(@ENTRY,0,13,0,2,1,100,2,0,30,30000,35000,11,16170,1,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Bloodlust at 30% HP'),
-(@ENTRY,0,14,0,9,1,100,2,0,8,13600,14500,11,33860,1,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Arcane Explosion on Close');
+(@ENTRY,0,0,0,0,0,100,2,0,0,3400,4700,11,15801,64,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt'),
+(@ENTRY,0,1,0,0,0,100,2,9000,14000,15000,17000,11,16006,0,0,0,0,0,5,0,0,0,0,0,0,0,'Cast Chain Lightning'),
+(@ENTRY,0,2,0,0,0,100,2,7000,12000,35000,40000,11,8376,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Earthgrab Totem'),
+(@ENTRY,0,3,0,2,0,100,2,0,50,15000,22000,11,15982,1,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Healing Wave at 50% HP'),
+(@ENTRY,0,4,0,2,0,100,2,0,30,30000,35000,11,16170,1,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Bloodlust at 30% HP'),
+(@ENTRY,0,5,0,9,0,100,2,0,8,13600,14500,11,33860,1,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Arcane Explosion on Close');
 
 -- Guard Mol'dar
 SET @ENTRY := 14326;
@@ -171,25 +162,10 @@ SET @ENTRY := 11488;
 UPDATE `creature_template` SET `AIName`='SmartAI' WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,1,4,0,100,3,0,0,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving on Aggro'),
-(@ENTRY,0,1,2,61,0,100,3,0,0,0,0,11,30933,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Shoot on Aggro'),
-(@ENTRY,0,2,3,61,0,100,3,0,0,0,0,20,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Melee Attack on Aggro'),
-(@ENTRY,0,3,0,61,0,100,3,0,0,0,0,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 on Aggro'),
-(@ENTRY,0,4,5,9,1,100,2,5,30,2300,3900,11,30933,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Shoot'),
-(@ENTRY,0,5,0,61,1,100,2,0,0,0,0,40,2,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Ranged Weapon Model'),
-(@ENTRY,0,6,7,9,1,100,2,30,80,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving when not in Shoot Range'),
-(@ENTRY,0,7,0,61,1,100,2,0,0,0,0,20,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Melee Attack when not in Shoot Range'),
-(@ENTRY,0,8,9,9,1,100,2,0,10,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving when not in Shoot Range'),
-(@ENTRY,0,9,10,61,1,100,2,0,0,0,0,40,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Melee Weapon Model when not in Shoot Range'),
-(@ENTRY,0,10,0,61,1,100,2,0,0,0,0,20,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Melee Attack when not in Shoot Range'),
-(@ENTRY,0,11,12,9,1,100,2,11,25,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving at 25 Yards'),
-(@ENTRY,0,12,13,61,1,100,2,0,0,0,0,20,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Melee Attack at 25 Yards'),
-(@ENTRY,0,13,0,61,1,100,2,0,0,0,0,40,2,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Ranged Weapon Model at 25 Yards'),
-(@ENTRY,0,14,15,7,1,100,3,0,0,0,0,40,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Melee Weapon Model on Evade'),
-(@ENTRY,0,15,0,61,1,100,3,0,0,0,0,22,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Reset on Evade'),
-(@ENTRY,0,16,5,9,1,100,2,5,30,9000,11000,11,22914,1,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Concussive Shot'),
-(@ENTRY,0,17,5,9,1,100,2,5,30,19000,25000,11,20735,1,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Multi-Shot'),
-(@ENTRY,0,18,0,0,1,100,2,10000,18000,20000,41000,11,22910,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Immolation Trap');
+(@ENTRY,0,0,0,0,0,100,2,0,0,2300,3900,11,30933,64,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Shoot'),
+(@ENTRY,0,1,5,9,0,100,2,5,30,9000,11000,11,22914,1,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Concussive Shot'),
+(@ENTRY,0,2,5,9,0,100,2,5,30,19000,25000,11,20735,1,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Multi-Shot'),
+(@ENTRY,0,3,0,0,0,100,2,10000,18000,20000,41000,11,22910,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Immolation Trap');
 
 -- Immol'thar
 SET @ENTRY := 11496;
@@ -213,27 +189,12 @@ SET @ENTRY := 16097;
 UPDATE `creature_template` SET `AIName`='SmartAI' WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,1,4,0,100,3,0,0,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving on Aggro'),
-(@ENTRY,0,1,2,61,0,100,3,0,0,0,0,11,22907,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Shoot on Aggro'),
-(@ENTRY,0,2,3,61,0,100,3,0,0,0,0,20,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Melee Attack on Aggro'),
-(@ENTRY,0,3,0,61,0,100,3,0,0,0,0,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 on Aggro'),
-(@ENTRY,0,4,5,9,1,100,2,5,30,2300,3900,11,22907,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Shoot'),
-(@ENTRY,0,5,0,61,1,100,2,0,0,0,0,40,2,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Ranged Weapon Model'),
-(@ENTRY,0,6,7,9,1,100,2,30,80,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving when not in Shoot Range'),
-(@ENTRY,0,7,0,61,1,100,2,0,0,0,0,20,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Melee Attack when not in Shoot Range'),
-(@ENTRY,0,8,9,9,1,100,2,0,10,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving when not in Shoot Range'),
-(@ENTRY,0,9,10,61,1,100,2,0,0,0,0,40,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Melee Weapon Model when not in Shoot Range'),
-(@ENTRY,0,10,0,61,1,100,2,0,0,0,0,20,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Melee Attack when not in Shoot Range'),
-(@ENTRY,0,11,12,9,1,100,2,11,25,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving at 25 Yards'),
-(@ENTRY,0,12,13,61,1,100,2,0,0,0,0,20,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Melee Attack at 25 Yards'),
-(@ENTRY,0,13,0,61,1,100,2,0,0,0,0,40,2,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Ranged Weapon Model at 25 Yards'),
-(@ENTRY,0,14,15,7,1,100,3,0,0,0,0,40,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Melee Weapon Model on Evade'),
-(@ENTRY,0,15,0,61,1,100,3,0,0,0,0,22,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Reset on Evade'),
-(@ENTRY,0,16,0,0,1,100,3,4000,7000,0,0,11,27639,1,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Call Pet'),
-(@ENTRY,0,17,0,9,1,100,2,5,30,7000,14000,11,14443,1,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Multi-Shot'),
-(@ENTRY,0,18,0,9,1,100,2,0,20,4000,9000,11,12024,1,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Net'),
-(@ENTRY,0,19,0,0,1,100,2,9000,11000,22000,25000,11,27636,1,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Starshards'),
-(@ENTRY,0,20,0,2,1,100,2,0,70,20000,25000,11,27637,1,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Regrowth at 70% HP');
+(@ENTRY,0,0,0,0,0,100,2,0,0,2300,3900,11,22907,64,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Shoot'),
+(@ENTRY,0,1,0,0,0,100,3,4000,7000,0,0,11,27639,1,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Call Pet'),
+(@ENTRY,0,2,0,9,0,100,2,5,30,7000,14000,11,14443,1,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Multi-Shot'),
+(@ENTRY,0,3,0,9,0,100,2,0,20,4000,9000,11,12024,1,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Net'),
+(@ENTRY,0,4,0,0,0,100,2,9000,11000,22000,25000,11,27636,1,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Starshards'),
+(@ENTRY,0,5,0,2,0,100,2,0,70,20000,25000,11,27637,1,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Regrowth at 70% HP');
 
 -- King Gordok
 SET @ENTRY := 11501;
@@ -268,38 +229,20 @@ SET @ENTRY := 11487;
 UPDATE `creature_template` SET `AIName`='SmartAI' WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,4,0,100,3,0,0,0,0,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 on Aggro'),
-(@ENTRY,0,1,0,4,1,100,3,0,0,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving on Aggro'),
-(@ENTRY,0,2,0,4,1,100,3,0,0,0,0,11,15587,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt on Aggro'),
-(@ENTRY,0,3,0,9,1,100,2,0,40,3400,4700,11,15587,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt'),
-(@ENTRY,0,4,0,9,1,100,2,40,100,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving when not in bolt Range'),
-(@ENTRY,0,5,0,9,1,100,2,10,15,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving at 15 Yards'),
-(@ENTRY,0,6,0,9,1,100,2,0,40,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving when in bolt Range'),
-(@ENTRY,0,7,0,3,1,100,2,0,15,0,0,22,2,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 2 at 15% Mana'),
-(@ENTRY,0,8,0,3,2,100,2,0,15,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving at 15% Mana'),
-(@ENTRY,0,9,0,3,2,100,2,30,100,100,100,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 When Mana is above 30%'),
-(@ENTRY,0,10,0,0,1,100,2,9000,10000,7000,13000,11,15654,1,0,0,0,0,5,0,0,0,0,0,0,0,'Cast Shadow Word: Pain'),
-(@ENTRY,0,11,0,0,1,100,2,22000,32000,13000,27000,11,22919,1,0,0,0,0,4,0,0,0,0,0,0,0,'Cast Mind Flay'),
-(@ENTRY,0,12,0,0,1,100,2,8000,13000,17000,23000,11,7645,1,0,0,0,0,5,0,0,0,0,0,0,0,'Cast Dominate Mind'),
-(@ENTRY,0,13,0,2,1,100,3,0,60,0,0,11,22917,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Shadowform at 60% HP');
+(@ENTRY,0,0,0,0,0,100,2,0,0,3400,4700,11,15587,64,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt'),
+(@ENTRY,0,1,0,0,0,100,2,9000,10000,7000,13000,11,15654,1,0,0,0,0,5,0,0,0,0,0,0,0,'Cast Shadow Word: Pain'),
+(@ENTRY,0,2,0,0,0,100,2,22000,32000,13000,27000,11,22919,1,0,0,0,0,4,0,0,0,0,0,0,0,'Cast Mind Flay'),
+(@ENTRY,0,3,0,0,0,100,2,8000,13000,17000,23000,11,7645,1,0,0,0,0,5,0,0,0,0,0,0,0,'Cast Dominate Mind'),
+(@ENTRY,0,4,0,2,0,100,3,0,60,0,0,11,22917,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Shadowform at 60% HP');
 
 -- Pimgib
 SET @ENTRY := 14349;
 UPDATE `creature_template` SET `AIName`='SmartAI' WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,4,0,100,3,0,0,0,0,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 on Aggro'),
-(@ENTRY,0,1,0,4,1,100,3,0,0,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving on Aggro'),
-(@ENTRY,0,2,0,4,1,100,3,0,0,0,0,11,14034,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt on Aggro'),
-(@ENTRY,0,3,0,9,1,100,2,0,40,3400,4700,11,14034,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt'),
-(@ENTRY,0,4,0,9,1,100,2,40,100,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving when not in bolt Range'),
-(@ENTRY,0,5,0,9,1,100,2,10,15,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving at 15 Yards'),
-(@ENTRY,0,6,0,9,1,100,2,0,40,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving when in bolt Range'),
-(@ENTRY,0,7,0,3,1,100,2,0,15,0,0,22,2,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 2 at 15% Mana'),
-(@ENTRY,0,8,0,3,2,100,2,0,15,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving at 15% Mana'),
-(@ENTRY,0,9,0,3,2,100,2,30,100,100,100,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 When Mana is above 30%'),
-(@ENTRY,0,10,0,9,1,100,2,0,8,19000,25000,11,15744,1,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Blast Wave on Close'),
-(@ENTRY,0,11,0,0,1,100,2,9000,10000,7000,12000,11,22713,1,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Flame Buffet');
+(@ENTRY,0,0,0,0,0,100,2,0,0,3400,4700,11,14034,64,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt'),
+(@ENTRY,0,1,0,9,0,100,2,0,8,19000,25000,11,15744,1,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Blast Wave on Close'),
+(@ENTRY,0,2,0,0,0,100,2,9000,10000,7000,12000,11,22713,1,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Flame Buffet');
 
 -- Prince Tortheldrin <Ruler of the Shen'dralar>
 SET @ENTRY := 11486;
@@ -420,19 +363,10 @@ SET @ENTRY := 11471;
 UPDATE `creature_template` SET `AIName`='SmartAI' WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,4,0,100,3,0,0,0,0,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 on Aggro'),
-(@ENTRY,0,1,0,4,1,100,3,0,0,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving on Aggro'),
-(@ENTRY,0,2,0,4,1,100,3,0,0,0,0,11,57825,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt on Aggro'),
-(@ENTRY,0,3,0,9,1,100,2,0,40,3400,4700,11,57825,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt'),
-(@ENTRY,0,4,0,9,1,100,2,40,100,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving when not in bolt Range'),
-(@ENTRY,0,5,0,9,1,100,2,10,15,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving at 15 Yards'),
-(@ENTRY,0,6,0,9,1,100,2,0,40,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving when in bolt Range'),
-(@ENTRY,0,7,0,3,1,100,2,0,15,0,0,22,2,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 2 at 15% Mana'),
-(@ENTRY,0,8,0,3,2,100,2,0,15,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving at 15% Mana'),
-(@ENTRY,0,9,0,3,2,100,2,30,100,100,100,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 When Mana is above 30%'),
-(@ENTRY,0,10,0,1,0,100,2,500,1000,600000,600000,11,18100,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Frost Armor on Spawn'),
-(@ENTRY,0,11,0,0,1,100,2,3000,14000,18000,24000,11,22744,1,0,0,0,0,5,0,0,0,0,0,0,0,'Cast Chains of Ice'),
-(@ENTRY,0,12,0,9,1,100,2,0,8,13600,14500,11,12611,1,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Cone of Cold on Close');
+(@ENTRY,0,0,0,0,0,100,2,0,0,3400,4700,11,57825,64,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt'),
+(@ENTRY,0,1,0,1,0,100,2,500,1000,600000,600000,11,18100,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Frost Armor on Spawn'),
+(@ENTRY,0,2,0,0,0,100,2,3000,14000,18000,24000,11,22744,1,0,0,0,0,5,0,0,0,0,0,0,0,'Cast Chains of Ice'),
+(@ENTRY,0,3,0,9,0,100,2,0,8,13600,14500,11,12611,1,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Cone of Cold on Close');
 
 -- Eldreth Darter
 SET @ENTRY := 14398;
@@ -470,18 +404,9 @@ SET @ENTRY := 11470;
 UPDATE `creature_template` SET `AIName`='SmartAI' WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,4,0,100,3,0,0,0,0,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 on Aggro'),
-(@ENTRY,0,1,0,4,1,100,3,0,0,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving on Aggro'),
-(@ENTRY,0,2,0,4,1,100,3,0,0,0,0,11,20831,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt on Aggro'),
-(@ENTRY,0,3,0,9,1,100,2,0,40,3400,4700,11,20831,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt'),
-(@ENTRY,0,4,0,9,1,100,2,40,100,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving when not in bolt Range'),
-(@ENTRY,0,5,0,9,1,100,2,10,15,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving at 15 Yards'),
-(@ENTRY,0,6,0,9,1,100,2,0,40,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving when in bolt Range'),
-(@ENTRY,0,7,0,3,1,100,2,0,15,0,0,22,2,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 2 at 15% Mana'),
-(@ENTRY,0,8,0,3,2,100,2,0,15,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving at 15% Mana'),
-(@ENTRY,0,9,0,3,2,100,2,30,100,100,100,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 When Mana is above 30%'),
-(@ENTRY,0,10,0,0,1,100,2,10000,13000,7000,12000,11,22823,1,0,0,0,0,4,0,0,0,0,0,0,0,'Cast Starshards'),
-(@ENTRY,0,11,0,0,1,100,2,9000,15000,16000,21000,11,13323,1,0,0,0,0,5,0,0,0,0,0,0,0,'Cast Polymorph');
+(@ENTRY,0,0,0,0,0,100,2,0,0,3400,4700,11,20831,64,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt'),
+(@ENTRY,0,1,0,0,0,100,2,10000,13000,7000,12000,11,22823,1,0,0,0,0,4,0,0,0,0,0,0,0,'Cast Starshards'),
+(@ENTRY,0,2,0,0,0,100,2,9000,15000,16000,21000,11,13323,1,0,0,0,0,5,0,0,0,0,0,0,0,'Cast Polymorph');
 
 -- Eldreth Spectre
 SET @ENTRY := 11473;
@@ -527,17 +452,8 @@ SET @ENTRY := 13197;
 UPDATE `creature_template` SET `AIName`='SmartAI' WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,4,0,100,3,0,0,0,0,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 on Aggro'),
-(@ENTRY,0,1,0,4,1,100,3,0,0,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving on Aggro'),
-(@ENTRY,0,2,0,4,1,100,3,0,0,0,0,11,15230,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt on Aggro'),
-(@ENTRY,0,3,0,9,1,100,2,0,40,3400,4700,11,15230,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt'),
-(@ENTRY,0,4,0,9,1,100,2,40,100,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving when not in bolt Range'),
-(@ENTRY,0,5,0,9,1,100,2,10,15,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving at 15 Yards'),
-(@ENTRY,0,6,0,9,1,100,2,0,40,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving when in bolt Range'),
-(@ENTRY,0,7,0,3,1,100,2,0,15,0,0,22,2,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 2 at 15% Mana'),
-(@ENTRY,0,8,0,3,2,100,2,0,15,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving at 15% Mana'),
-(@ENTRY,0,9,0,3,2,100,2,30,100,100,100,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 When Mana is above 30%'),
-(@ENTRY,0,10,0,9,1,100,2,0,8,13600,14500,11,22271,1,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Arcane Explosion on Close');
+(@ENTRY,0,0,0,0,0,100,2,0,0,3400,4700,11,15230,64,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt'),
+(@ENTRY,0,1,0,9,0,100,2,0,8,13600,14500,11,22271,1,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Arcane Explosion on Close');
 
 -- Gordok Brute
 SET @ENTRY := 11441;
@@ -592,20 +508,11 @@ SET @ENTRY := 11444;
 UPDATE `creature_template` SET `AIName`='SmartAI' WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,4,0,100,3,0,0,0,0,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 on Aggro'),
-(@ENTRY,0,1,0,4,1,100,3,0,0,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving on Aggro'),
-(@ENTRY,0,2,0,4,1,100,3,0,0,0,0,11,15043,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt on Aggro'),
-(@ENTRY,0,3,0,9,1,100,2,0,40,3400,4700,11,15043,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt'),
-(@ENTRY,0,4,0,9,1,100,2,40,100,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving when not in bolt Range'),
-(@ENTRY,0,5,0,9,1,100,2,10,15,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving at 15 Yards'),
-(@ENTRY,0,6,0,9,1,100,2,0,40,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving when in bolt Range'),
-(@ENTRY,0,7,0,3,1,100,2,0,15,0,0,22,2,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 2 at 15% Mana'),
-(@ENTRY,0,8,0,3,2,100,2,0,15,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving at 15% Mana'),
-(@ENTRY,0,9,0,3,2,100,2,30,100,100,100,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 When Mana is above 30%'),
-(@ENTRY,0,10,0,9,1,100,2,0,20,11000,19000,11,14145,1,0,0,0,0,4,0,0,0,0,0,0,0,'Cast Fire Blast on Close'),
-(@ENTRY,0,11,0,9,1,100,2,0,10,27000,32000,11,18399,1,0,0,0,0,4,0,0,0,0,0,0,0,'Cast Flamestrike on Close'),
-(@ENTRY,0,12,0,0,1,100,2,7000,8000,9000,16000,11,16170,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Bloodlust'),
-(@ENTRY,0,13,0,0,1,100,2,7000,13000,16000,20000,11,13323,0,0,0,0,0,5,0,0,0,0,0,0,0,'Cast Polymorph');
+(@ENTRY,0,0,0,0,0,100,2,0,0,3400,4700,11,15043,64,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt'),
+(@ENTRY,0,1,0,9,0,100,2,0,20,11000,19000,11,14145,1,0,0,0,0,4,0,0,0,0,0,0,0,'Cast Fire Blast on Close'),
+(@ENTRY,0,2,0,9,0,100,2,0,10,27000,32000,11,18399,1,0,0,0,0,4,0,0,0,0,0,0,0,'Cast Flamestrike on Close'),
+(@ENTRY,0,3,0,0,0,100,2,7000,8000,9000,16000,11,16170,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Bloodlust'),
+(@ENTRY,0,4,0,0,0,100,2,7000,13000,16000,20000,11,13323,0,0,0,0,0,5,0,0,0,0,0,0,0,'Cast Polymorph');
 
 -- Gordok Mastiff
 SET @ENTRY := 13036;
@@ -629,39 +536,21 @@ SET @ENTRY := 11448;
 UPDATE `creature_template` SET `AIName`='SmartAI' WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,4,0,100,3,0,0,0,0,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 on Aggro'),
-(@ENTRY,0,1,0,4,1,100,3,0,0,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving on Aggro'),
-(@ENTRY,0,2,0,4,1,100,3,0,0,0,0,11,12739,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt on Aggro'),
-(@ENTRY,0,3,0,9,1,100,2,0,40,3400,4700,11,12739,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt'),
-(@ENTRY,0,4,0,9,1,100,2,40,100,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving when not in bolt Range'),
-(@ENTRY,0,5,0,9,1,100,2,10,15,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving at 15 Yards'),
-(@ENTRY,0,6,0,9,1,100,2,0,40,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving when in bolt Range'),
-(@ENTRY,0,7,0,3,1,100,2,0,15,0,0,22,2,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 2 at 15% Mana'),
-(@ENTRY,0,8,0,3,2,100,2,0,15,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving at 15% Mana'),
-(@ENTRY,0,9,0,3,2,100,2,30,100,100,100,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 When Mana is above 30%'),
-(@ENTRY,0,10,0,1,0,100,2,500,1000,1800000,1800000,11,13787,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Demon Armor on Spawn'),
-(@ENTRY,0,11,0,1,0,100,3,3000,5000,0,0,11,22865,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Summon Doomguard on Spawn'),
-(@ENTRY,0,12,0,0,1,100,2,2000,4500,12000,16000,11,12742,1,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Immolate'),
-(@ENTRY,0,13,0,0,1,100,2,6000,8000,25000,32000,11,13338,1,0,0,0,0,4,0,0,0,0,0,0,0,'Cast Curse of Tongues'),
-(@ENTRY,0,14,0,0,1,100,2,11000,12000,38000,41000,11,8994,1,0,0,0,0,5,0,0,0,0,0,0,0,'Cast Banish');
+(@ENTRY,0,0,0,0,0,100,2,0,0,3400,4700,11,12739,64,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt'),
+(@ENTRY,0,1,0,1,0,100,2,500,1000,1800000,1800000,11,13787,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Demon Armor on Spawn'),
+(@ENTRY,0,2,0,1,0,100,3,3000,5000,0,0,11,22865,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Summon Doomguard on Spawn'),
+(@ENTRY,0,3,0,0,0,100,2,2000,4500,12000,16000,11,12742,1,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Immolate'),
+(@ENTRY,0,4,0,0,0,100,2,6000,8000,25000,32000,11,13338,1,0,0,0,0,4,0,0,0,0,0,0,0,'Cast Curse of Tongues'),
+(@ENTRY,0,5,0,0,0,100,2,11000,12000,38000,41000,11,8994,1,0,0,0,0,5,0,0,0,0,0,0,0,'Cast Banish');
 
 -- Highborne Summoner <House of Shen'dralar>
 SET @ENTRY := 11466;
 UPDATE `creature_template` SET `AIName`='SmartAI' WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,4,0,100,3,0,0,0,0,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 on Aggro'),
-(@ENTRY,0,1,0,4,1,100,3,0,0,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving on Aggro'),
-(@ENTRY,0,2,0,4,1,100,3,0,0,0,0,11,9053,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt on Aggro'),
-(@ENTRY,0,3,0,9,1,100,2,0,40,3400,4700,11,9053,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt'),
-(@ENTRY,0,4,0,9,1,100,2,40,100,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving when not in bolt Range'),
-(@ENTRY,0,5,0,9,1,100,2,10,15,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving at 15 Yards'),
-(@ENTRY,0,6,0,9,1,100,2,0,40,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving when in bolt Range'),
-(@ENTRY,0,7,0,3,1,100,2,0,15,0,0,22,2,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 2 at 15% Mana'),
-(@ENTRY,0,8,0,3,2,100,2,0,15,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving at 15% Mana'),
-(@ENTRY,0,9,0,3,2,100,2,30,100,100,100,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 When Mana is above 30%'),
-(@ENTRY,0,10,0,9,1,100,2,0,8,13600,14500,11,11831,1,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Frost Nova on Close'),
-(@ENTRY,0,11,0,0,1,100,2,4000,5000,14000,16000,11,13339,1,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Fire Blast');
+(@ENTRY,0,0,0,0,0,100,2,0,0,3400,4700,11,9053,64,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt'),
+(@ENTRY,0,1,0,9,0,100,2,0,8,13600,14500,11,11831,1,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Frost Nova on Close'),
+(@ENTRY,0,2,0,0,0,100,2,4000,5000,14000,16000,11,13339,1,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Fire Blast');
 
 -- Ironbark Protector
 SET @ENTRY := 11459;
@@ -716,18 +605,9 @@ SET @ENTRY := 11484;
 UPDATE `creature_template` SET `AIName`='SmartAI' WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,4,0,100,3,0,0,0,0,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 on Aggro'),
-(@ENTRY,0,1,0,4,1,100,3,0,0,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving on Aggro'),
-(@ENTRY,0,2,0,4,1,100,3,0,0,0,0,11,13748,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt on Aggro'),
-(@ENTRY,0,3,0,9,1,100,2,0,40,3400,4700,11,13748,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt'),
-(@ENTRY,0,4,0,9,1,100,2,40,100,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving when not in bolt Range'),
-(@ENTRY,0,5,0,9,1,100,2,10,15,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving at 15 Yards'),
-(@ENTRY,0,6,0,9,1,100,2,0,40,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving when in bolt Range'),
-(@ENTRY,0,7,0,3,1,100,2,0,15,0,0,22,2,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 2 at 15% Mana'),
-(@ENTRY,0,8,0,3,2,100,2,0,15,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving at 15% Mana'),
-(@ENTRY,0,9,0,3,2,100,2,30,100,100,100,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 When Mana is above 30%'),
-(@ENTRY,0,10,0,9,1,100,2,0,5,19000,23000,11,22940,1,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Arcane Blast on Close'),
-(@ENTRY,0,11,0,6,1,100,3,0,0,0,0,11,22939,3,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Summon Mana Bursts on Death');
+(@ENTRY,0,0,0,0,0,100,2,0,0,3400,4700,11,13748,64,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt'),
+(@ENTRY,0,1,0,9,0,100,2,0,5,19000,23000,11,22940,1,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Arcane Blast on Close'),
+(@ENTRY,0,2,0,6,0,100,3,0,0,0,0,11,22939,3,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Summon Mana Bursts on Death');
 
 -- Skeletal Highborne
 SET @ENTRY := 11476;
@@ -812,61 +692,28 @@ SET @ENTRY := 11457;
 UPDATE `creature_template` SET `AIName`='SmartAI' WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,4,0,100,3,0,0,0,0,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 on Aggro'),
-(@ENTRY,0,1,0,4,1,100,3,0,0,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving on Aggro'),
-(@ENTRY,0,2,0,4,1,100,3,0,0,0,0,11,15228,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt on Aggro'),
-(@ENTRY,0,3,0,9,1,100,2,0,40,3400,4700,11,15228,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt'),
-(@ENTRY,0,4,0,9,1,100,2,40,100,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving when not in bolt Range'),
-(@ENTRY,0,5,0,9,1,100,2,10,15,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving at 15 Yards'),
-(@ENTRY,0,6,0,9,1,100,2,0,40,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving when in bolt Range'),
-(@ENTRY,0,7,0,3,1,100,2,0,15,0,0,22,2,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 2 at 15% Mana'),
-(@ENTRY,0,8,0,3,2,100,2,0,15,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving at 15% Mana'),
-(@ENTRY,0,9,0,3,2,100,2,30,100,100,100,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 When Mana is above 30%'),
-(@ENTRY,0,10,0,0,1,100,2,8000,8000,18000,19000,11,31598,1,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Rain of Fire');
+(@ENTRY,0,0,0,0,0,100,2,0,0,3400,4700,11,15228,64,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt'),
+(@ENTRY,0,1,0,0,0,100,2,8000,8000,18000,19000,11,31598,1,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Rain of Fire');
 
 -- Wildspawn Betrayer
 SET @ENTRY := 11454;
 UPDATE `creature_template` SET `AIName`='SmartAI' WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,1,4,0,100,3,0,0,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving on Aggro'),
-(@ENTRY,0,1,2,61,0,100,3,0,0,0,0,11,16100,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Shoot on Aggro'),
-(@ENTRY,0,2,3,61,0,100,3,0,0,0,0,20,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Melee Attack on Aggro'),
-(@ENTRY,0,3,0,61,0,100,3,0,0,0,0,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 on Aggro'),
-(@ENTRY,0,4,5,9,1,100,2,5,30,2300,3900,11,16100,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Shoot'),
-(@ENTRY,0,5,0,61,1,100,2,0,0,0,0,40,2,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Ranged Weapon Model'),
-(@ENTRY,0,6,7,9,1,100,2,30,80,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving when not in Shoot Range'),
-(@ENTRY,0,7,0,61,1,100,2,0,0,0,0,20,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Melee Attack when not in Shoot Range'),
-(@ENTRY,0,8,9,9,1,100,2,0,10,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving when not in Shoot Range'),
-(@ENTRY,0,9,10,61,1,100,2,0,0,0,0,40,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Melee Weapon Model when not in Shoot Range'),
-(@ENTRY,0,10,0,61,1,100,2,0,0,0,0,20,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Melee Attack when not in Shoot Range'),
-(@ENTRY,0,11,12,9,1,100,2,11,25,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving at 25 Yards'),
-(@ENTRY,0,12,13,61,1,100,2,0,0,0,0,20,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Melee Attack at 25 Yards'),
-(@ENTRY,0,13,0,61,1,100,2,0,0,0,0,40,2,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Ranged Weapon Model at 25 Yards'),
-(@ENTRY,0,14,15,7,1,100,3,0,0,0,0,40,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Melee Weapon Model on Evade'),
-(@ENTRY,0,15,0,61,1,100,3,0,0,0,0,22,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Reset on Evade'),
-(@ENTRY,0,16,0,0,1,100,2,8000,8000,12000,17000,11,7896,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Exploding Shot'),
-(@ENTRY,0,17,0,0,1,100,2,12000,14000,22000,23000,11,18649,0,0,0,0,0,5,0,0,0,0,0,0,0,'Cast Shadow Shot'),
-(@ENTRY,0,18,0,9,1,100,2,0,5,7000,17000,11,11428,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Knockdown on Close');
+(@ENTRY,0,0,0,0,0,100,2,0,0,2300,3900,11,16100,64,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Shoot'),
+(@ENTRY,0,1,0,0,0,100,2,8000,8000,12000,17000,11,7896,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Exploding Shot'),
+(@ENTRY,0,2,0,0,0,100,2,12000,14000,22000,23000,11,18649,0,0,0,0,0,5,0,0,0,0,0,0,0,'Cast Shadow Shot'),
+(@ENTRY,0,3,0,9,0,100,2,0,5,7000,17000,11,11428,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Knockdown on Close');
 
 -- Wildspawn Felsworn
 SET @ENTRY := 11455;
 UPDATE `creature_template` SET `AIName`='SmartAI' WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,4,0,100,3,0,0,0,0,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 on Aggro'),
-(@ENTRY,0,1,0,4,1,100,3,0,0,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving on Aggro'),
-(@ENTRY,0,2,0,4,1,100,3,0,0,0,0,11,12471,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt on Aggro'),
-(@ENTRY,0,3,0,9,1,100,2,0,40,3400,4700,11,12471,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt'),
-(@ENTRY,0,4,0,9,1,100,2,40,100,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving when not in bolt Range'),
-(@ENTRY,0,5,0,9,1,100,2,10,15,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving at 15 Yards'),
-(@ENTRY,0,6,0,9,1,100,2,0,40,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving when in bolt Range'),
-(@ENTRY,0,7,0,3,1,100,2,0,15,0,0,22,2,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 2 at 15% Mana'),
-(@ENTRY,0,8,0,3,2,100,2,0,15,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving at 15% Mana'),
-(@ENTRY,0,9,0,3,2,100,2,30,100,100,100,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 When Mana is above 30%'),
-(@ENTRY,0,10,0,0,1,100,2,3000,4000,120000,120000,11,22418,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Chaotic Focus'),
-(@ENTRY,0,11,0,0,1,100,2,6000,8000,17000,19000,11,15654,0,0,0,0,0,5,0,0,0,0,0,0,0,'Cast Shadow Word: Pain'),
-(@ENTRY,0,12,0,2,1,100,3,0,30,0,0,11,22417,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Shadow Shield at 30% HP');
+(@ENTRY,0,0,0,0,0,100,2,0,0,3400,4700,11,12471,64,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt'),
+(@ENTRY,0,1,0,0,0,100,2,3000,4000,120000,120000,11,22418,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Chaotic Focus'),
+(@ENTRY,0,2,0,0,0,100,2,6000,8000,17000,19000,11,15654,0,0,0,0,0,5,0,0,0,0,0,0,0,'Cast Shadow Word: Pain'),
+(@ENTRY,0,3,0,2,0,100,3,0,30,0,0,11,22417,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Shadow Shield at 30% HP');
 
 -- Wildspawn Shadowstalker
 SET @ENTRY := 11456;
