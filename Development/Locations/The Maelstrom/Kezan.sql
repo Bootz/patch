@@ -631,7 +631,9 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,11,0,20,0,100,0,14122,0,0,0,5,4,0,0,0,0,0,1,0,0,0,0,0,0,0,'Play Emote on Quest End'),
 (@ENTRY,0,12,0,20,0,100,0,14125,0,0,0,5,4,0,0,0,0,0,1,0,0,0,0,0,0,0,'Play Emote on Quest End'),
 (@ENTRY,0,13,0,61,0,100,0,0,0,0,0,5,4,0,0,0,0,0,1,0,0,0,0,0,0,0,'Play Emote on Quest End'),
-(@ENTRY,0,14,0,20,0,100,0,24520,0,0,0,5,4,0,0,0,0,0,1,0,0,0,0,0,0,0,'Play Emote on Quest End');
+(@ENTRY,0,14,0,20,0,100,0,24520,0,0,0,5,4,0,0,0,0,0,1,0,0,0,0,0,0,0,'Play Emote on Quest End'),
+(@ENTRY,0,15,0,19,0,100,0,14125,0,0,0,1,6,0,0,0,0,0,1,0,0,0,0,0,0,0,'Say Text on Quest Add'),
+(@ENTRY,0,16,0,19,0,100,0,14126,0,0,0,1,7,0,0,0,0,0,1,0,0,0,0,0,0,0,'Say Text on Quest Add');
 -- NPC talk text insert
 SET @ENTRY := 34668;
 DELETE FROM `creature_text` WHERE `entry`=@ENTRY;
@@ -641,7 +643,9 @@ INSERT INTO `creature_text` (`entry`,`groupid`,`id`,`text`,`type`,`language`,`pr
 (@ENTRY,2,0, 'Ace,Izzy,Gobber,you three make sure you tag a long with $N and help him take care of those dead beats!',12,0,100,1,0,0, 'say Text'),
 (@ENTRY,3,0, 'Go get \'em,boss!',12,0,100,1,0,0, 'say Text'),
 (@ENTRY,4,0, 'You better get upstairs pronto,boss. Trade Prince Gallywix is waiting for you.',12,0,100,1,0,0, 'say Text'),
-(@ENTRY,5,0, '$N, you have to hurry and break your moolah out of the bank!',12,0,100,1,0,0, 'say Text');
+(@ENTRY,5,0, '$N, you have to hurry and break your moolah out of the bank!',12,0,100,1,0,0, 'say Text'),
+(@ENTRY,6,0, 'I can\'t stand to watch. So many good memories. So much profit.',12,0,100,1,0,0, 'say Text'),
+(@ENTRY,7,0, 'The Trade Prince\'s yacht is about to set sail. Everyone,get to the dock! Hand over the keys,boss. I\'m driving. Just let me know when you\'re ready to go.',12,0,100,1,0,0, 'say Text');
 
 -- Sister Goldskimmer <Priest Trainer>
 SET @ENTRY := 34692;
