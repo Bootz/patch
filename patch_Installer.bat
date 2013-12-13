@@ -20,7 +20,7 @@ goto install
 
 :standard
 rem Standard install section
-color 3
+color 6
 echo .
 echo    ````````````$````````$
 echo    ````````````$````````$  *SmartAI Lab scripts*
@@ -30,7 +30,7 @@ echo    $$$```$$$$``$``$`````$```$          for Trinity Database original
 echo    $````$```$``$``$```$`$```$         
 echo    $`````$$$$``$$``$$$``$```$ 
 echo.
-echo Credits to: Zic24,Verron,DeftaL,Rubill,Nex20,Zippo,JuKoT,melk,SuuZeR,Piro,Alex 
+echo Credits to: Zic24,Verron,DeftaL,Rubill,Nex20,Zippo,JuKoT,melk,SuuZeR,Piro,Alex, Jcarter4562 and Discover
 echo Project owner: cooler-SAI
 echo                            Powered by SmartAI Engine
 echo.
