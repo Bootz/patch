@@ -638,7 +638,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 SET @ENTRY := 34668;
 DELETE FROM `creature_text` WHERE `entry`=@ENTRY;
 INSERT INTO `creature_text` (`entry`,`groupid`,`id`,`text`,`type`,`language`,`probability`,`emote`,`duration`,`sound`,`comment`) VALUES
-(@ENTRY,0,0, 'Haha! that should be a blast!',12,0,100,1,0,0, 'say Text'),
+(@ENTRY,0,0, 'Haha! that should be a blast!',12,0,100,25,0,0, 'say Text'),
 (@ENTRY,1,0, 'He\'ll get me more later? How are we supposed to get you promoted to Trade Prince without our number one product on the shelves?',12,0,100,1,0,0, 'say Text'),
 (@ENTRY,2,0, 'Ace,Izzy,Gobber,you three make sure you tag a long with $N and help him take care of those dead beats!',12,0,100,1,0,0, 'say Text'),
 (@ENTRY,3,0, 'Go get \'em,boss!',12,0,100,1,0,0, 'say Text'),
