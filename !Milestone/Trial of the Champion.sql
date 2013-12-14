@@ -57,6 +57,3 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,4,0,6,0,100,5,0,0,0,0,11,67886,3,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Explode on Death'),
 (@ENTRY,0,5,0,4,0,100,3,0,0,0,0,11,67749,0,0,0,0,0,5,0,0,0,0,0,0,0,'Cast Leap on Aggro'),
 (@ENTRY,0,6,0,4,0,100,5,0,0,0,0,11,67880,0,0,0,0,0,5,0,0,0,0,0,0,0,'Cast Leap on Aggro');
-
-
-
