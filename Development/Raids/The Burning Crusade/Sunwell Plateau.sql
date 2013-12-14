@@ -369,9 +369,9 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,0,0,11,0,100,3,0,0,0,0,11,45769,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Sunwell Radiance on Spawn'),
 (@ENTRY,0,1,0,9,0,100,2,0,10,7000,11000,11,46087,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Shadow Pulse on Close'),
 (@ENTRY,0,2,0,0,0,100,2,15000,21000,14000,19000,11,46161,0,0,0,0,0,4,0,0,0,0,0,0,0,'Cast Void Blast'),
-(@ENTRY,0,3,4,6,0,100,3,0,0,0,0,12,25824,1,600000,0,0,0,1,0,0,0,0,0,0,0,'Cast Summon Void Spawns on Death'),
-(@ENTRY,0,4,5,61,0,100,3,0,0,0,0,12,25824,1,600000,0,0,0,1,0,0,0,0,0,0,0,'Cast Summon Void Spawns on Death'),
-(@ENTRY,0,5,0,61,0,100,3,0,0,0,0,12,25824,1,600000,0,0,0,1,0,0,0,0,0,0,0,'Cast Summon Void Spawns on Death');
+(@ENTRY,0,3,4,6,0,100,3,0,0,0,0,11,46071,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Summon Void Spawns on Death'),
+(@ENTRY,0,4,5,61,0,100,3,0,0,0,0,11,46071,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Summon Void Spawns on Death'),
+(@ENTRY,0,5,0,61,0,100,3,0,0,0,0,11,46071,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Summon Void Spawns on Death');
 
 -- Void Spawn
 SET @ENTRY := 25824;
