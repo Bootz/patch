@@ -537,7 +537,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 SET @ENTRY := 34695;
 DELETE FROM `creature_text` WHERE `entry`=@ENTRY;
 INSERT INTO `creature_text` (`entry`,`groupid`,`id`,`text`,`type`,`language`,`probability`,`emote`,`duration`,`sound`,`comment`) VALUES
-(@ENTRY,0,0, 'Would one of you hurry up and finish off the other? Some of us are trying to make some moolah here!',12,0,100,0,0,0, 'say Text');
+(@ENTRY,0,0, 'Would one of you hurry up and finish off the other? Some of us are trying to make some moolah here!',12,0,100,1,0,0, 'say Text');
 
 -- Megs Dreadshredder <Marketing Rep>
 SET @ENTRY := 34874;
