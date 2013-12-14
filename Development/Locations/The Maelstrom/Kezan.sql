@@ -532,7 +532,7 @@ DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,0,0,1,0,100,0,500,1000,600000,600000,11,78273,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Flametongue Weapon on Spawn'),
 (@ENTRY,0,1,0,1,0,100,0,10000,20000,50000,60000,11,69626,0,0,0,0,0,10,222705,34689,0,0,0,0,0,'Cast Lightning Bolt OOC'),
-(@ENTRY,0,2,0,1,0,100,0,10000,60000,20000,100000,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Say Text OOC');
+(@ENTRY,0,2,0,1,0,100,0,10000,60000,300000,450000,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Say Text OOC');
 -- NPC talk text insert
 SET @ENTRY := 34695;
 DELETE FROM `creature_text` WHERE `entry`=@ENTRY;
@@ -668,11 +668,11 @@ SET @ENTRY := 34693;
 UPDATE `creature_template` SET `AIName`='SmartAI' WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,1,0,100,0,1000,1000,60000,60000,11,1784,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Stealth on Spawn'),
+(@ENTRY,0,0,0,1,0,100,0,1000,1000,60000,60000,11,120748,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Stealth on Spawn'),
 (@ENTRY,0,1,0,64,0,100,0,0,0,0,0,10,1,3,5,6,0,0,1,0,0,0,0,0,0,0,'Play Emote on Gossip'),
 (@ENTRY,0,2,0,20,0,100,0,14123,0,0,0,5,4,0,0,0,0,0,1,0,0,0,0,0,0,0,'Play Emote on Quest End'),
 (@ENTRY,0,3,0,19,0,100,0,14115,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Say Text on Quest Add'),
-(@ENTRY,0,4,0,1,0,100,0,50000,50000,120000,120000,28,1784,0,0,0,0,0,1,0,0,0,0,0,0,0,'Remove Spell OOC'),
+(@ENTRY,0,4,0,1,0,100,0,50000,50000,120000,120000,28,120748,0,0,0,0,0,1,0,0,0,0,0,0,0,'Remove Spell OOC'),
 (@ENTRY,0,5,0,19,0,100,0,14010,0,0,0,1,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Say Text on Quest Add'),
 (@ENTRY,0,6,0,20,0,100,0,14010,0,0,0,5,4,0,0,0,0,0,1,0,0,0,0,0,0,0,'Play Emote on Quest End');
 SET @ENTRY := 34693;
