@@ -113,7 +113,7 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,0,0,4,0,100,7,0,0,0,0,11,32316,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Summon Ethereal Wraith on Aggro'),
 (@ENTRY,0,1,0,0,0,100,2,2000,4500,15000,18000,11,17883,0,0,0,0,0,4,0,0,0,0,0,0,0,'Cast Immolate'),
 (@ENTRY,0,2,0,0,0,100,4,2000,4500,15000,18000,11,37668,0,0,0,0,0,4,0,0,0,0,0,0,0,'Cast Immolate'),
-(@ENTRY,0,0,0,13,0,100,6,9000,11000,0,0,11,37470,0,0,0,0,0,7,0,0,0,0,0,0,0,'Cast Counterspell on Player Spell Cast');
+(@ENTRY,0,3,0,13,0,100,6,9000,11000,0,0,11,37470,0,0,0,0,0,7,0,0,0,0,0,0,0,'Cast Counterspell on Player Spell Cast');
 
 -- Ethereal Theurgist
 SET @ENTRY := 18315;
