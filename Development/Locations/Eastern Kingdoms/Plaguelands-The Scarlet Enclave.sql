@@ -1,4 +1,4 @@
-/* Copyright (C) 11 April 2011 patch Project 
+/* Copyright (C) 11 April 2011-2014 patch Project 
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3 of the License, or
@@ -11,7 +11,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, see <http://www.gnu.org/licenses/> 
  *
- * patch Project  Copyright (C) 11 April 2011 patch Project 
+ * patch Project  Copyright (C) 11 April 2011-2014 patch Project 
  * This program comes with ABSOLUTELY NO WARRANTY;
  * This is free software, and you are welcome to redistribute it
  * under certain conditions.
@@ -22,27 +22,16 @@
 UPDATE `creature_template` SET `AIName`='SmartAI' WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,4,0,100,1,0,0,0,0,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 on Aggro'),
-(@ENTRY,0,1,0,4,1,100,1,0,0,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving on Aggro'),
-(@ENTRY,0,2,0,4,1,100,1,0,0,0,0,11,15498,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt on Aggro'),
-(@ENTRY,0,3,0,9,1,100,0,0,40,3400,4700,11,15498,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt'),
-(@ENTRY,0,4,0,9,1,100,0,40,100,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving when not in bolt Range'),
-(@ENTRY,0,5,0,9,1,100,0,10,15,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving at 15 Yards'),
-(@ENTRY,0,6,0,9,1,100,0,0,40,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving when in bolt Range'),
-(@ENTRY,0,7,0,3,1,100,0,0,15,0,0,22,2,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 2 at 15% Mana'),
-(@ENTRY,0,8,0,3,2,100,0,0,15,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving at 15% Mana'),
-(@ENTRY,0,9,0,3,2,100,0,30,100,100,100,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 When Mana is above 30%'),
-(@ENTRY,0,10,0,2,2,100,1,0,15,0,0,22,3,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 3 at 15% HP'),
-(@ENTRY,0,11,0,2,3,100,1,0,15,0,0,25,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Flee at 15% HP'),
-(@ENTRY,0,12,0,7,3,100,1,0,0,0,0,22,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Reset on Evade'),
-(@ENTRY,0,13,0,2,3,100,1,0,15,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Say Text at 15% HP'),
-(@ENTRY,0,14,0,0,1,100,0,8000,8000,16000,18900,11,19725,0,0,0,0,0,5,0,0,0,0,0,0,0,'Cast Turn Undead'),
-(@ENTRY,0,15,0,1,0,100,0,500,1000,600000,600000,11,34809,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Holy Fury on Spawn');
+(@ENTRY,0,0,0,0,0,100,0,0,0,3400,4700,11,15498,64,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt'),
+(@ENTRY,0,1,2,2,0,100,1,0,15,0,0,25,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Flee at 15% HP'),
+(@ENTRY,0,2,0,61,0,100,1,0,15,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Say Text at 15% HP'),
+(@ENTRY,0,3,0,0,0,100,0,8000,8000,16000,18900,11,19725,0,0,0,0,0,5,0,0,0,0,0,0,0,'Cast Turn Undead'),
+(@ENTRY,0,4,0,1,0,100,0,500,1000,600000,600000,11,34809,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Holy Fury on Spawn');
 -- NPC talk text insert
 SET @ENTRY := 29007;
 DELETE FROM `creature_text` WHERE `entry`=@ENTRY;
 INSERT INTO `creature_text` (`entry`,`groupid`,`id`,`text`,`type`,`language`,`probability`,`emote`,`duration`,`sound`,`comment`) VALUES
-(@ENTRY,0,0, '%s attempts to run away in fear!',2,0,100,0,0,0, 'combat Flee');
+(@ENTRY,0,0, '%s attempts to run away in fear!',16,0,100,0,0,0, 'combat Flee');
  
 -- Death Knight
 SET @ENTRY := 28934;
@@ -67,17 +56,10 @@ SET @ENTRY := 28768;
 UPDATE `creature_template` SET `AIName`='SmartAI' WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,4,0,100,1,0,0,0,0,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 on Aggro'),
-(@ENTRY,0,1,0,4,1,100,1,0,0,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving on Aggro'),
-(@ENTRY,0,2,0,4,1,100,1,0,0,0,0,11,52356,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Throw on Aggro'),
-(@ENTRY,0,3,0,9,1,100,0,5,30,3500,4100,11,52356,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Throw'),
-(@ENTRY,0,4,0,9,1,100,0,30,100,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving when not in Throw Range'),
-(@ENTRY,0,5,0,9,1,100,0,9,15,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving at 15 Yards'),
-(@ENTRY,0,6,0,9,1,100,0,0,5,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving when not in Throw Range'),
-(@ENTRY,0,7,0,9,1,100,0,5,30,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving when in Throw Range'),
-(@ENTRY,0,8,0,0,1,100,0,5000,5000,12000,13000,11,52374,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Blood Strike'),
-(@ENTRY,0,9,0,0,1,100,0,8000,8500,14500,18200,11,50688,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Plague Strike'),
-(@ENTRY,0,10,0,0,1,100,0,3000,11000,25400,27800,11,52372,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Icy Touch');
+(@ENTRY,0,0,0,0,0,100,0,0,0,2300,3900,11,52356,64,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Throw'),
+(@ENTRY,0,1,0,0,0,100,0,5000,5000,12000,13000,11,52374,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Blood Strike'),
+(@ENTRY,0,2,0,0,0,100,0,8000,8500,14500,18200,11,50688,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Plague Strike'),
+(@ENTRY,0,3,0,0,0,100,0,3000,11000,25400,27800,11,52372,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Icy Touch');
 
 -- Acherus Geist
 SET @ENTRY := 28709;
@@ -91,7 +73,6 @@ SET @ENTRY := 28474;
 UPDATE `creature_template` SET `AIName`='SmartAI' WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-
 (@ENTRY,0,0,0,1,0,100,0,5000,5000,800000,800000,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Say Text OOC'),
 (@ENTRY,0,1,0,1,0,100,0,20000,20000,820000,820000,1,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Say Text OOC'),
 (@ENTRY,0,2,0,1,0,100,0,40000,40000,840000,840000,1,2,0,0,0,0,0,1,0,0,0,0,0,0,0,'Say Text OOC'),
@@ -102,12 +83,12 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 SET @ENTRY := 28474;
 DELETE FROM `creature_text` WHERE `entry`=@ENTRY;
 INSERT INTO `creature_text` (`entry`,`groupid`,`id`,`text`,`type`,`language`,`probability`,`emote`,`duration`,`sound`,`comment`) VALUES
-(@ENTRY,0,0, 'You have stood and listened long enough. Step forth.',0,0,100,1,0,0, 'Text 1'),
-(@ENTRY,1,0, 'You are not overwhelmed just yet disciple... let the hungering cold of death halt this onslaught.',0,0,100,1,0,0, 'Text 2'),
-(@ENTRY,2,0, 'Frozen solid, ripe for the slaughter. Let loose a howling blast and shatter them into pieces, disciple.',0,0,100,1,0,0, 'Text 3'),
-(@ENTRY,3,0, 'You have more learning ahead of you disciple. Return to your studies.',0,0,100,1,0,0, 'Text 4'),
-(@ENTRY,4,0, 'Do not let it consider its next spell so freely, disciple... freeze its mind.',0,0,100,1,0,0, 'Text 5'),
-(@ENTRY,5,0, 'Well done.',0,0,100,1,0,0, 'Text 6');
+(@ENTRY,0,0, 'You have stood and listened long enough. Step forth.',12,0,100,1,0,0, 'Text 1'),
+(@ENTRY,1,0, 'You are not overwhelmed just yet disciple... let the hungering cold of death halt this onslaught.',12,0,100,1,0,0, 'Text 2'),
+(@ENTRY,2,0, 'Frozen solid, ripe for the slaughter. Let loose a howling blast and shatter them into pieces, disciple.',12,0,100,1,0,0, 'Text 3'),
+(@ENTRY,3,0, 'You have more learning ahead of you disciple. Return to your studies.',12,0,100,1,0,0, 'Text 4'),
+(@ENTRY,4,0, 'Do not let it consider its next spell so freely, disciple... freeze its mind.',12,0,100,1,0,0, 'Text 5'),
+(@ENTRY,5,0, 'Well done.',12,0,100,1,0,0, 'Text 6');
 
 -- Baron Rivendare
 SET @ENTRY := 29109;
@@ -116,7 +97,6 @@ DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,0,0,0,0,100,0,5000,5500,12000,13500,11,15284,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Cleave'),
 (@ENTRY,0,1,0,0,0,100,0,8000,8000,15600,18200,11,15708,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Mortal Strike');
-
 
 -- Citizen of Havenshire
 SET @ENTRY := 28577;
@@ -141,30 +121,29 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,15,0,7,2,100,1,0,0,0,0,22,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Reset Phase on Evade'),
 (@ENTRY,0,16,0,6,1,100,1,0,0,0,0,33,28764,0,0,0,0,0,7,0,0,0,0,0,0,0,'Quest Credit on Death'),
 (@ENTRY,0,17,0,6,2,100,1,0,0,0,0,33,28764,0,0,0,0,0,7,0,0,0,0,0,0,0,'Quest Credit on Death');
-
 -- NPC talk text insert
 SET @ENTRY := 28577;
 DELETE FROM `creature_text` WHERE `entry`=@ENTRY;
 INSERT INTO `creature_text` (`entry`,`groupid`,`id`,`text`,`type`,`language`,`probability`,`emote`,`duration`,`sound`,`comment`) VALUES
-(@ENTRY,0,0, 'Why?',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,0,1, 'P... Please don\'t...',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,0,2, 'Spare my life! I will leave this place forever!Please!',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,0,3, 'You make my children orphans on this day,friend! ',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,0,4, 'The... They promised that we\'d be safe... ',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,0,5, 'I\'m too young to die! ',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,0,6, 'Ask for anything and you shall have it! Just spare my life! ',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,1,0, 'The Lich King whispers:Kill them all!',2,0,50,0,0,14772, 'combat Say'),
-(@ENTRY,1,1, 'The Lich King whispers:Finish it!',2,0,50,0,0,14774, 'combat Say'),
-(@ENTRY,1,2, 'The Lich King whispers:Mercy is for the weak!',2,0,50,0,0,14773, 'combat Say'),
-(@ENTRY,1,3, 'The Lich King whispers:No survivors!',2,0,50,0,0,14776, 'combat Say'),
-(@ENTRY,1,4, 'The Lich King whispers:Show it the meaning of terror!',2,0,50,0,0,14782, 'combat Say'),
-(@ENTRY,1,5, 'The Lich King whispers:No mercy!',2,0,50,0,0,14771, 'combat Say'),
-(@ENTRY,1,6, 'The Lich King whispers:Kill or die!',2,0,50,0,0,14777, 'combat Say'),
-(@ENTRY,1,7, 'The Lich King whispers:Suffering to the conquered!',2,0,50,0,0,14781, 'combat Say'),
-(@ENTRY,2,0, 'I won\'t go down that easy!',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,2,1, 'Die Scourge dog!DIE!',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,2,2, 'Is this the best the Scourge can do?',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,2,3, 'You may take my life, but you won\'t take my freedom!',0,0,50,0,0,0, 'combat Say');
+(@ENTRY,0,0, 'Why?',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,0,1, 'P... Please don\'t...',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,0,2, 'Spare my life! I will leave this place forever!Please!',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,0,3, 'You make my children orphans on this day,friend! ',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,0,4, 'The... They promised that we\'d be safe... ',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,0,5, 'I\'m too young to die! ',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,0,6, 'Ask for anything and you shall have it! Just spare my life! ',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,1,0, 'The Lich King whispers:Kill them all!',16,0,50,0,0,14772, 'combat Say'),
+(@ENTRY,1,1, 'The Lich King whispers:Finish it!',16,0,50,0,0,14774, 'combat Say'),
+(@ENTRY,1,2, 'The Lich King whispers:Mercy is for the weak!',16,0,50,0,0,14773, 'combat Say'),
+(@ENTRY,1,3, 'The Lich King whispers:No survivors!',16,0,50,0,0,14776, 'combat Say'),
+(@ENTRY,1,4, 'The Lich King whispers:Show it the meaning of terror!',16,0,50,0,0,14782, 'combat Say'),
+(@ENTRY,1,5, 'The Lich King whispers:No mercy!',16,0,50,0,0,14771, 'combat Say'),
+(@ENTRY,1,6, 'The Lich King whispers:Kill or die!',16,0,50,0,0,14777, 'combat Say'),
+(@ENTRY,1,7, 'The Lich King whispers:Suffering to the conquered!',16,0,50,0,0,14781, 'combat Say'),
+(@ENTRY,2,0, 'I won\'t go down that easy!',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,2,1, 'Die Scourge dog!DIE!',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,2,2, 'Is this the best the Scourge can do?',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,2,3, 'You may take my life, but you won\'t take my freedom!',12,0,50,0,0,0, 'combat Say');
 
 -- Citizen of Havenshire
 SET @ENTRY := 28576;
@@ -189,30 +168,29 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,15,0,7,2,100,1,0,0,0,0,22,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Reset Phase on Evade'),
 (@ENTRY,0,16,0,6,1,100,1,0,0,0,0,33,28764,0,0,0,0,0,7,0,0,0,0,0,0,0,'Quest Credit on Death'),
 (@ENTRY,0,17,0,6,2,100,1,0,0,0,0,33,28764,0,0,0,0,0,7,0,0,0,0,0,0,0,'Quest Credit on Death');
-
 -- NPC talk text insert
 SET @ENTRY := 28576;
 DELETE FROM `creature_text` WHERE `entry`=@ENTRY;
 INSERT INTO `creature_text` (`entry`,`groupid`,`id`,`text`,`type`,`language`,`probability`,`emote`,`duration`,`sound`,`comment`) VALUES
-(@ENTRY,0,0, 'Why?',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,0,1, 'P... Please don\'t...',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,0,2, 'Spare my life! I will leave this place forever!Please!',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,0,3, 'You make my children orphans on this day,friend! ',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,0,4, 'The... They promised that we\'d be safe... ',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,0,5, 'I\'m too young to die! ',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,0,6, 'Ask for anything and you shall have it! Just spare my life! ',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,1,0, 'The Lich King whispers:Kill them all!',2,0,50,0,0,14772, 'combat Say'),
-(@ENTRY,1,1, 'The Lich King whispers:Finish it!',2,0,50,0,0,14774, 'combat Say'),
-(@ENTRY,1,2, 'The Lich King whispers:Mercy is for the weak!',2,0,50,0,0,14773, 'combat Say'),
-(@ENTRY,1,3, 'The Lich King whispers:No survivors!',2,0,50,0,0,14776, 'combat Say'),
-(@ENTRY,1,4, 'The Lich King whispers:Show it the meaning of terror!',2,0,50,0,0,14782, 'combat Say'),
-(@ENTRY,1,5, 'The Lich King whispers:No mercy!',2,0,50,0,0,14771, 'combat Say'),
-(@ENTRY,1,6, 'The Lich King whispers:Kill or die!',2,0,50,0,0,14777, 'combat Say'),
-(@ENTRY,1,7, 'The Lich King whispers:Suffering to the conquered!',2,0,50,0,0,14781, 'combat Say'),
-(@ENTRY,2,0, 'I won\'t go down that easy!',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,2,1, 'Die Scourge dog!DIE!',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,2,2, 'Is this the best the Scourge can do?',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,2,3, 'You may take my life, but you won\'t take my freedom!',0,0,50,0,0,0, 'combat Say');
+(@ENTRY,0,0, 'Why?',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,0,1, 'P... Please don\'t...',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,0,2, 'Spare my life! I will leave this place forever!Please!',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,0,3, 'You make my children orphans on this day,friend! ',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,0,4, 'The... They promised that we\'d be safe... ',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,0,5, 'I\'m too young to die! ',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,0,6, 'Ask for anything and you shall have it! Just spare my life! ',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,1,0, 'The Lich King whispers:Kill them all!',16,0,50,0,0,14772, 'combat Say'),
+(@ENTRY,1,1, 'The Lich King whispers:Finish it!',16,0,50,0,0,14774, 'combat Say'),
+(@ENTRY,1,2, 'The Lich King whispers:Mercy is for the weak!',16,0,50,0,0,14773, 'combat Say'),
+(@ENTRY,1,3, 'The Lich King whispers:No survivors!',16,0,50,0,0,14776, 'combat Say'),
+(@ENTRY,1,4, 'The Lich King whispers:Show it the meaning of terror!',16,0,50,0,0,14782, 'combat Say'),
+(@ENTRY,1,5, 'The Lich King whispers:No mercy!',16,0,50,0,0,14771, 'combat Say'),
+(@ENTRY,1,6, 'The Lich King whispers:Kill or die!',16,0,50,0,0,14777, 'combat Say'),
+(@ENTRY,1,7, 'The Lich King whispers:Suffering to the conquered!',16,0,50,0,0,14781, 'combat Say'),
+(@ENTRY,2,0, 'I won\'t go down that easy!',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,2,1, 'Die Scourge dog!DIE!',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,2,2, 'Is this the best the Scourge can do?',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,2,3, 'You may take my life, but you won\'t take my freedom!',12,0,50,0,0,0, 'combat Say');
 
 
 -- Citizen of New Avalon
@@ -220,7 +198,6 @@ SET @ENTRY := 28941;
 UPDATE `creature_template` SET `AIName`='SmartAI' WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-
 (@ENTRY,0,0,0,9,0,100,1,0,5,0,0,31,1,2,0,0,0,0,1,0,0,0,0,0,0,0,'Set Random Phase on Range'),
 (@ENTRY,0,1,2,9,1,100,1,0,5,0,0,17,431,0,0,0,0,0,1,0,0,0,0,0,0,0,'Play Emote Fear on Range'),
 (@ENTRY,0,2,3,61,1,100,1,0,0,0,0,20,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Attack on Range'),
@@ -250,33 +227,30 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,26,0,6,1,100,1,0,0,0,0,33,28764,0,0,0,0,0,7,0,0,0,0,0,0,0,'Quest Credit on Death'),
 (@ENTRY,0,27,0,6,2,100,1,0,0,0,0,33,28764,0,0,0,0,0,7,0,0,0,0,0,0,0,'Quest Credit on Death'),
 (@ENTRY,0,28,0,6,4,100,1,0,0,0,0,33,28764,0,0,0,0,0,7,0,0,0,0,0,0,0,'Quest Credit on Death');
-
 -- NPC talk text insert
 SET @ENTRY := 28941;
 DELETE FROM `creature_text` WHERE `entry`=@ENTRY;
 INSERT INTO `creature_text` (`entry`,`groupid`,`id`,`text`,`type`,`language`,`probability`,`emote`,`duration`,`sound`,`comment`) VALUES
-(@ENTRY,0,0, 'Why?',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,0,1, 'Somebody save me!',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,0,2, 'Spare my life! I will leave this place forever!Please!',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,0,3, 'You make my children orphans on this day,friend! ',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,0,4, 'The... They promised that we\'d be safe... ',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,0,5, 'I\'m too young to die! ',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,0,6, 'Ask for anything and you shall have it! Just spare my life! ',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,0,7, 'HELP!HELP! ',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,1,0, 'I won\'t go down that easy!',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,1,1, 'Die Scourge dog!DIE!',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,1,2, 'Is this the best the Scourge can do?',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,1,3, 'You may take my life, but you won\'t take my freedom!',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,1,4, 'DIE!',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,1,5, 'Come then,death knight!',0,0,50,0,0,0, 'combat Say');
-
+(@ENTRY,0,0, 'Why?',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,0,1, 'Somebody save me!',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,0,2, 'Spare my life! I will leave this place forever!Please!',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,0,3, 'You make my children orphans on this day,friend! ',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,0,4, 'The... They promised that we\'d be safe... ',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,0,5, 'I\'m too young to die! ',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,0,6, 'Ask for anything and you shall have it! Just spare my life! ',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,0,7, 'HELP!HELP! ',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,1,0, 'I won\'t go down that easy!',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,1,1, 'Die Scourge dog!DIE!',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,1,2, 'Is this the best the Scourge can do?',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,1,3, 'You may take my life, but you won\'t take my freedom!',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,1,4, 'DIE!',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,1,5, 'Come then,death knight!',12,0,50,0,0,0, 'combat Say');
 
 -- Citizen of New Avalon
 SET @ENTRY := 28942;
 UPDATE `creature_template` SET `AIName`='SmartAI' WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-
 (@ENTRY,0,0,0,9,0,100,1,0,5,0,0,31,1,2,0,0,0,0,1,0,0,0,0,0,0,0,'Set Random Phase on Range'),
 (@ENTRY,0,1,2,9,1,100,1,0,5,0,0,17,431,0,0,0,0,0,1,0,0,0,0,0,0,0,'Play Emote Fear on Range'),
 (@ENTRY,0,2,3,61,1,100,1,0,0,0,0,20,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Attack on Range'),
@@ -306,41 +280,31 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,26,0,6,1,100,1,0,0,0,0,33,28764,0,0,0,0,0,7,0,0,0,0,0,0,0,'Quest Credit on Death'),
 (@ENTRY,0,27,0,6,2,100,1,0,0,0,0,33,28764,0,0,0,0,0,7,0,0,0,0,0,0,0,'Quest Credit on Death'),
 (@ENTRY,0,28,0,6,4,100,1,0,0,0,0,33,28764,0,0,0,0,0,7,0,0,0,0,0,0,0,'Quest Credit on Death');
-
 -- NPC talk text insert
 SET @ENTRY := 28942;
 DELETE FROM `creature_text` WHERE `entry`=@ENTRY;
 INSERT INTO `creature_text` (`entry`,`groupid`,`id`,`text`,`type`,`language`,`probability`,`emote`,`duration`,`sound`,`comment`) VALUES
-(@ENTRY,0,0, 'Why?',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,0,1, 'Somebody save me!',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,0,2, 'Spare my life! I will leave this place forever!Please!',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,0,3, 'You make my children orphans on this day,friend! ',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,0,4, 'The... They promised that we\'d be safe... ',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,0,5, 'I\'m too young to die! ',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,0,6, 'Ask for anything and you shall have it! Just spare my life! ',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,0,7, 'HELP!HELP! ',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,1,0, 'I won\'t go down that easy!',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,1,1, 'Die Scourge dog!DIE!',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,1,2, 'Is this the best the Scourge can do?',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,1,3, 'You may take my life, but you won\'t take my freedom!',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,1,4, 'DIE!',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,1,5, 'Come then,death knight!',0,0,50,0,0,0, 'combat Say');
+(@ENTRY,0,0, 'Why?',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,0,1, 'Somebody save me!',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,0,2, 'Spare my life! I will leave this place forever!Please!',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,0,3, 'You make my children orphans on this day,friend! ',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,0,4, 'The... They promised that we\'d be safe... ',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,0,5, 'I\'m too young to die! ',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,0,6, 'Ask for anything and you shall have it! Just spare my life! ',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,0,7, 'HELP!HELP! ',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,1,0, 'I won\'t go down that easy!',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,1,1, 'Die Scourge dog!DIE!',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,1,2, 'Is this the best the Scourge can do?',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,1,3, 'You may take my life, but you won\'t take my freedom!',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,1,4, 'DIE!',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,1,5, 'Come then,death knight!',12,0,50,0,0,0, 'combat Say');
 
 -- Coldwraith
 SET @ENTRY := 28488;
 UPDATE `creature_template` SET `AIName`='SmartAI' WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,4,0,100,1,0,0,0,0,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 on Aggro'),
-(@ENTRY,0,1,0,4,1,100,1,0,0,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving on Aggro'),
-(@ENTRY,0,2,0,4,1,100,1,0,0,0,0,11,15043,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt on Aggro'),
-(@ENTRY,0,3,0,9,1,100,0,0,40,3400,4700,11,15043,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt'),
-(@ENTRY,0,4,0,9,1,100,0,40,100,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving when not in bolt Range'),
-(@ENTRY,0,5,0,9,1,100,0,10,15,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving at 15 Yards'),
-(@ENTRY,0,6,0,9,1,100,0,0,40,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving when in bolt Range'),
-(@ENTRY,0,7,0,3,1,100,0,0,15,0,0,22,2,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 2 at 15% Mana'),
-(@ENTRY,0,8,0,3,2,100,0,0,15,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving at 15% Mana'),
-(@ENTRY,0,9,0,3,2,100,0,30,100,100,100,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 When Mana is above 30%');
+(@ENTRY,0,0,0,0,0,100,0,0,0,3400,4700,11,15043,64,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt');
 
 -- Commander Eligor Dawnbringer
 SET @ENTRY := 29177;
@@ -423,12 +387,11 @@ DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,0,1,1,0,100,0,5000,5000,180000,180000,11,52672,0,0,0,0,0,11,0,20,0,0,0,0,0,'Cast  Ghoulplosion  OOC'),
 (@ENTRY,0,1,0,61,0,100,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Say Text OOC');
-
 -- NPC talk text insert
 SET @ENTRY := 27033;
 DELETE FROM `creature_text` WHERE `entry`=@ENTRY;
 INSERT INTO `creature_text` (`entry`,`groupid`,`id`,`text`,`type`,`language`,`probability`,`emote`,`duration`,`sound`,`comment`) VALUES
-(@ENTRY,0,0, 'Is Gothik the Harvester going to have to choke a geist?',0,0,100,0,0,0, 'Text 1');
+(@ENTRY,0,0, 'Is Gothik the Harvester going to have to choke a geist?',12,0,100,0,0,0, 'Text 1');
 
 -- Hearthglen Crusader
 SET @ENTRY := 29102;
@@ -448,14 +411,13 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 SET @ENTRY := 28945;
 DELETE FROM `creature_text` WHERE `entry`=@ENTRY;
 INSERT INTO `creature_text` (`entry`,`groupid`,`id`,`text`,`type`,`language`,`probability`,`emote`,`duration`,`sound`,`comment`) VALUES
-(@ENTRY,0,0, 'The Crusade will be victorious!',0,0,100,0,0,0, 'combat Say');
+(@ENTRY,0,0, 'The Crusade will be victorious!',12,0,100,0,0,0, 'combat Say');
 
 -- Citizen of New Avalon
 SET @ENTRY := 28559;
 UPDATE `creature_template` SET `AIName`='SmartAI' WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-
 (@ENTRY,0,0,0,9,0,100,1,0,5,0,0,31,1,2,0,0,0,0,1,0,0,0,0,0,0,0,'Set Random Phase on Range'),
 (@ENTRY,0,1,2,9,1,100,1,0,5,0,0,17,431,0,0,0,0,0,1,0,0,0,0,0,0,0,'Play Emote Fear on Range'),
 (@ENTRY,0,2,3,61,1,100,1,0,0,0,0,20,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Attack on Range'),
@@ -486,48 +448,45 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,27,0,6,2,100,1,0,0,0,0,33,28764,0,0,0,0,0,7,0,0,0,0,0,0,0,'Quest Credit on Death'),
 (@ENTRY,0,28,0,6,4,100,1,0,0,0,0,33,28764,0,0,0,0,0,7,0,0,0,0,0,0,0,'Quest Credit on Death'),
 (@ENTRY,0,29,0,1,0,100,0,1000,5000,5000,15000,1,2,0,0,0,0,0,1,0,0,0,0,0,0,0,'Say Text OOC');
-
 -- NPC talk text insert
 SET @ENTRY := 28559;
 DELETE FROM `creature_text` WHERE `entry`=@ENTRY;
 INSERT INTO `creature_text` (`entry`,`groupid`,`id`,`text`,`type`,`language`,`probability`,`emote`,`duration`,`sound`,`comment`) VALUES
-(@ENTRY,0,0, 'Why?',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,0,1, 'Somebody save me!',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,0,2, 'Spare my life! I will leave this place forever!Please!',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,0,3, 'You make my children orphans on this day,friend! ',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,0,4, 'The... They promised that we\'d be safe... ',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,0,5, 'I\'m too young to die! ',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,0,6, 'Ask for anything and you shall have it! Just spare my life! ',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,0,7, 'HELP!HELP! ',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,1,0, 'I won\'t go down that easy!',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,1,1, 'Die Scourge dog!DIE!',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,1,2, 'Is this the best the Scourge can do?',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,1,3, 'You may take my life, but you won\'t take my freedom!',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,1,4, 'DIE!',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,1,5, 'Come then,death knight!',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,2,0, 'If you don\'t come out, we\'ll tear this place apart!',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,2,1, 'What\'s "Crimson Down" We deserve to know the truth,Quimby!',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,2,2, 'Where are those ships going,Quimby? Tell us the truth!',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,2,3, 'QUIMBY!!!!!',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,2,4, 'Everybody is dying! Help us!',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,2,5, 'My whole family\'s been killed! Where was the army when we needed them most?',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,2,6, 'No more lies,Quimby! We need answers!',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,2,7, 'This is a slap in the face! We demand answers!',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,2,8, 'The Scourge are running freely through the streets!',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,2,9, 'So much for the Scarlet "paradise!"',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,2,10, 'You are useless,Quimby!',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,2,11, 'I want on that last ship! Don\'t leave us!',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,2,12, 'We we promised safety! Security!',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,2,13, 'We\'re done for.Safe us,Quimby!',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,2,14, 'Naxxramas is gone? Who cares! Acherus is here now and the death knights are killing everybody!',0,0,50,22,0,0, 'combat Say');
-
+(@ENTRY,0,0, 'Why?',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,0,1, 'Somebody save me!',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,0,2, 'Spare my life! I will leave this place forever!Please!',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,0,3, 'You make my children orphans on this day,friend! ',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,0,4, 'The... They promised that we\'d be safe... ',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,0,5, 'I\'m too young to die! ',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,0,6, 'Ask for anything and you shall have it! Just spare my life! ',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,0,7, 'HELP!HELP! ',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,1,0, 'I won\'t go down that easy!',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,1,1, 'Die Scourge dog!DIE!',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,1,2, 'Is this the best the Scourge can do?',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,1,3, 'You may take my life, but you won\'t take my freedom!',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,1,4, 'DIE!',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,1,5, 'Come then,death knight!',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,2,0, 'If you don\'t come out, we\'ll tear this place apart!',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,2,1, 'What\'s "Crimson Down" We deserve to know the truth,Quimby!',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,2,2, 'Where are those ships going,Quimby? Tell us the truth!',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,2,3, 'QUIMBY!!!!!',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,2,4, 'Everybody is dying! Help us!',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,2,5, 'My whole family\'s been killed! Where was the army when we needed them most?',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,2,6, 'No more lies,Quimby! We need answers!',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,2,7, 'This is a slap in the face! We demand answers!',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,2,8, 'The Scourge are running freely through the streets!',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,2,9, 'So much for the Scarlet "paradise!"',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,2,10, 'You are useless,Quimby!',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,2,11, 'I want on that last ship! Don\'t leave us!',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,2,12, 'We we promised safety! Security!',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,2,13, 'We\'re done for.Safe us,Quimby!',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,2,14, 'Naxxramas is gone? Who cares! Acherus is here now and the death knights are killing everybody!',12,0,50,22,0,0, 'combat Say');
 
 -- Citizen of New Avalon
 SET @ENTRY := 28560;
 UPDATE `creature_template` SET `AIName`='SmartAI' WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-
 (@ENTRY,0,0,0,9,0,100,1,0,5,0,0,31,1,2,0,0,0,0,1,0,0,0,0,0,0,0,'Set Random Phase on Range'),
 (@ENTRY,0,1,2,9,1,100,1,0,5,0,0,17,431,0,0,0,0,0,1,0,0,0,0,0,0,0,'Play Emote Fear on Range'),
 (@ENTRY,0,2,3,61,1,100,1,0,0,0,0,20,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Attack on Range'),
@@ -558,40 +517,39 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,27,0,6,2,100,1,0,0,0,0,33,28764,0,0,0,0,0,7,0,0,0,0,0,0,0,'Quest Credit on Death'),
 (@ENTRY,0,28,0,6,4,100,1,0,0,0,0,33,28764,0,0,0,0,0,7,0,0,0,0,0,0,0,'Quest Credit on Death'),
 (@ENTRY,0,29,0,1,0,100,0,1000,5000,5000,15000,1,2,0,0,0,0,0,1,0,0,0,0,0,0,0,'Say Text OOC');
-
 -- NPC talk text insert
 SET @ENTRY := 28560;
 DELETE FROM `creature_text` WHERE `entry`=@ENTRY;
 INSERT INTO `creature_text` (`entry`,`groupid`,`id`,`text`,`type`,`language`,`probability`,`emote`,`duration`,`sound`,`comment`) VALUES
-(@ENTRY,0,0, 'Why?',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,0,1, 'Somebody save me!',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,0,2, 'Spare my life! I will leave this place forever!Please!',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,0,3, 'You make my children orphans on this day,friend! ',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,0,4, 'The... They promised that we\'d be safe... ',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,0,5, 'I\'m too young to die! ',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,0,6, 'Ask for anything and you shall have it! Just spare my life! ',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,0,7, 'HELP!HELP! ',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,1,0, 'I won\'t go down that easy!',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,1,1, 'Die Scourge dog!DIE!',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,1,2, 'Is this the best the Scourge can do?',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,1,3, 'You may take my life, but you won\'t take my freedom!',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,1,4, 'DIE!',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,1,5, 'Come then,death knight!',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,2,0, 'If you don\'t come out, we\'ll tear this place apart!',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,2,1, 'What\'s "Crimson Down" We deserve to know the truth,Quimby!',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,2,2, 'Where are those ships going,Quimby? Tell us the truth!',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,2,3, 'QUIMBY!!!!!',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,2,4, 'Everybody is dying! Help us!',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,2,5, 'My whole family\'s been killed! Where was the army when we needed them most?',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,2,6, 'No more lies,Quimby! We need answers!',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,2,7, 'This is a slap in the face! We demand answers!',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,2,8, 'The Scourge are running freely through the streets!',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,2,9, 'So much for the Scarlet "paradise!"',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,2,10, 'You are useless,Quimby!',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,2,11, 'I want on that last ship! Don\'t leave us!',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,2,12, 'We we promised safety! Security!',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,2,13, 'We\'re done for.Safe us,Quimby!',0,0,50,22,0,0, 'combat Say'),
-(@ENTRY,2,14, 'Naxxramas is gone? Who cares! Acherus is here now and the death knights are killing everybody!',0,0,50,22,0,0, 'combat Say');
+(@ENTRY,0,0, 'Why?',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,0,1, 'Somebody save me!',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,0,2, 'Spare my life! I will leave this place forever!Please!',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,0,3, 'You make my children orphans on this day,friend! ',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,0,4, 'The... They promised that we\'d be safe... ',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,0,5, 'I\'m too young to die! ',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,0,6, 'Ask for anything and you shall have it! Just spare my life! ',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,0,7, 'HELP!HELP! ',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,1,0, 'I won\'t go down that easy!',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,1,1, 'Die Scourge dog!DIE!',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,1,2, 'Is this the best the Scourge can do?',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,1,3, 'You may take my life, but you won\'t take my freedom!',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,1,4, 'DIE!',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,1,5, 'Come then,death knight!',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,2,0, 'If you don\'t come out, we\'ll tear this place apart!',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,2,1, 'What\'s "Crimson Down" We deserve to know the truth,Quimby!',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,2,2, 'Where are those ships going,Quimby? Tell us the truth!',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,2,3, 'QUIMBY!!!!!',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,2,4, 'Everybody is dying! Help us!',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,2,5, 'My whole family\'s been killed! Where was the army when we needed them most?',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,2,6, 'No more lies,Quimby! We need answers!',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,2,7, 'This is a slap in the face! We demand answers!',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,2,8, 'The Scourge are running freely through the streets!',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,2,9, 'So much for the Scarlet "paradise!"',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,2,10, 'You are useless,Quimby!',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,2,11, 'I want on that last ship! Don\'t leave us!',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,2,12, 'We we promised safety! Security!',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,2,13, 'We\'re done for.Safe us,Quimby!',12,0,50,22,0,0, 'combat Say'),
+(@ENTRY,2,14, 'Naxxramas is gone? Who cares! Acherus is here now and the death knights are killing everybody!',12,0,50,22,0,0, 'combat Say');
 
 -- Knight Commander Plaguefist
 SET @ENTRY := 29053;
@@ -636,31 +594,21 @@ SET @ENTRY := 29001;
 UPDATE `creature_template` SET `AIName`='SmartAI' WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,4,0,100,1,0,0,0,0,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 on Aggro'),
-(@ENTRY,0,1,0,4,1,100,1,0,0,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving on Aggro'),
-(@ENTRY,0,2,0,4,1,100,1,0,0,0,0,11,52926,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt on Aggro'),
-(@ENTRY,0,3,0,9,1,100,0,0,40,3400,4700,11,52926,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt'),
-(@ENTRY,0,4,0,9,1,100,0,40,100,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving when not in bolt Range'),
-(@ENTRY,0,5,0,9,1,100,0,10,15,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving at 15 Yards'),
-(@ENTRY,0,6,0,9,1,100,0,0,40,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving when in bolt Range'),
-(@ENTRY,0,7,0,3,1,100,0,0,15,0,0,22,2,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 2 at 15% Mana'),
-(@ENTRY,0,8,0,3,2,100,0,0,15,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving at 15% Mana'),
-(@ENTRY,0,9,0,3,2,100,0,30,100,100,100,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 When Mana is above 30%'),
-(@ENTRY,0,10,0,4,1,100,1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Say on Aggro'),
-(@ENTRY,0,11,0,0,1,100,1,3000,3000,0,0,1,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Say in Battle'),
-(@ENTRY,0,12,0,0,1,100,1,4000,4000,0,0,1,2,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Say in Battle'),
-(@ENTRY,0,13,0,0,1,100,1,6000,6000,0,0,1,3,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Say in Battle'),
-(@ENTRY,0,14,0,0,1,100,0,8000,8000,16000,19000,11,52922,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast The Inquisitor\'s Penance'),
-(@ENTRY,0,15,0,2,1,100,1,0,30,0,0,11,38210,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Renew at 30% HP');
+(@ENTRY,0,0,0,0,0,100,0,0,0,3400,4700,11,52926,64,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt'),
+(@ENTRY,0,1,0,4,0,100,1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Say on Aggro'),
+(@ENTRY,0,2,0,0,0,100,1,3000,3000,0,0,1,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Say in Battle'),
+(@ENTRY,0,3,0,0,0,100,1,4000,4000,0,0,1,2,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Say in Battle'),
+(@ENTRY,0,4,0,0,0,100,1,6000,6000,0,0,1,3,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Say in Battle'),
+(@ENTRY,0,5,0,0,0,100,0,8000,8000,16000,19000,11,52922,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast The Inquisitor\'s Penance'),
+(@ENTRY,0,6,0,2,0,100,1,0,30,0,0,11,38210,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Renew at 30% HP');
 -- NPC talk text insert
 SET @ENTRY := 29001;
 DELETE FROM `creature_text` WHERE `entry`=@ENTRY;
 INSERT INTO `creature_text` (`entry`,`groupid`,`id`,`text`,`type`,`language`,`probability`,`emote`,`duration`,`sound`,`comment`) VALUES
-(@ENTRY,0,0, 'Your dark Scourge magic won\'t protect you from the Light!',0,0,100,0,0,0, 'combat Say'),
-(@ENTRY,1,0, 'Come out and play!',0,0,100,0,0,0, 'combat Say'),
-(@ENTRY,2,0, 'Coward!',0,0,100,0,0,0, 'combat Say'),
-(@ENTRY,3,0, 'You have come seeking devilerance? I have come to deliver!',0,0,100,0,0,0, 'combat Say');
-
+(@ENTRY,0,0, 'Your dark Scourge magic won\'t protect you from the Light!',12,0,100,0,0,0, 'combat Say'),
+(@ENTRY,1,0, 'Come out and play!',12,0,100,0,0,0, 'combat Say'),
+(@ENTRY,2,0, 'Coward!',12,0,100,0,0,0, 'combat Say'),
+(@ENTRY,3,0, 'You have come seeking devilerance? I have come to deliver!',12,0,100,0,0,0, 'combat Say');
 
 -- Scarlet Deserter
 SET @ENTRY := 29193;
@@ -678,13 +626,13 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 SET @ENTRY := 29193;
 DELETE FROM `creature_text` WHERE `entry`=@ENTRY;
 INSERT INTO `creature_text` (`entry`,`groupid`,`id`,`text`,`type`,`language`,`probability`,`emote`,`duration`,`sound`,`comment`) VALUES
-(@ENTRY,0,0, 'The horror! THE HORROR!',0,0,100,0,0,0, 'Text 1'),
-(@ENTRY,1,0, 'Wi... Will it hurt?',0,0,100,0,0,0, 'Text 2'),
-(@ENTRY,2,0, 'It tingles...',0,0,100,0,0,0, 'Text 3'),
-(@ENTRY,3,0, 'Please! Spare me! I...',0,0,100,0,0,0, 'Text 4'),
-(@ENTRY,4,0, 'You\'re a monster!',0,0,100,0,0,0, 'Text 5'),
-(@ENTRY,5,0, 'Why don\'t you Just Kill me Already?',0,0,100,0,0,0, 'Text 6'),
-(@ENTRY,6,0, 'Is it too late to change my mind? How about you just kill me instead?',0,0,100,0,0,0, 'Text 7');
+(@ENTRY,0,0, 'The horror! THE HORROR!',12,0,100,0,0,0, 'Text 1'),
+(@ENTRY,1,0, 'Wi... Will it hurt?',12,0,100,0,0,0, 'Text 2'),
+(@ENTRY,2,0, 'It tingles...',12,0,100,0,0,0, 'Text 3'),
+(@ENTRY,3,0, 'Please! Spare me! I...',12,0,100,0,0,0, 'Text 4'),
+(@ENTRY,4,0, 'You\'re a monster!',12,0,100,0,0,0, 'Text 5'),
+(@ENTRY,5,0, 'Why don\'t you Just Kill me Already?',12,0,100,0,0,0, 'Text 6'),
+(@ENTRY,6,0, 'Is it too late to change my mind? How about you just kill me instead?',12,0,100,0,0,0, 'Text 7');
 
 -- Gothik the Harvester
 SET @ENTRY := 29112;
@@ -701,12 +649,12 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 SET @ENTRY := 29112;
 DELETE FROM `creature_text` WHERE `entry`=@ENTRY;
 INSERT INTO `creature_text` (`entry`,`groupid`,`id`,`text`,`type`,`language`,`probability`,`emote`,`duration`,`sound`,`comment`) VALUES
-(@ENTRY,0,0, 'Oh yes. Immensely. The pain will propably render you unconcious - hence the vat of slime you\'re floating in!',0,0,100,1,0,0, 'Text 1'),
-(@ENTRY,1,0, 'That\'s how you know it\'s working.',0,0,100,1,0,0, 'Text 2'),
-(@ENTRY,2,0, 'Don\'t be ridiculous. Where would you even go if I did spare you? We just finished eradicating your civilization, remember?',0,0,100,1,0,0, 'Text 3'),
-(@ENTRY,3,0, 'Flattery will get you nowhere.',0,0,100,1,0,0, 'Text 3'),
-(@ENTRY,4,0, 'You idiot! That\'s What I\'m Doing Right Now!',0,0,100,1,0,0, 'Text 4'),
-(@ENTRY,5,0, 'I AM going to kill you. What\'s the rush?',0,0,100,1,0,0, 'Text 5');
+(@ENTRY,0,0, 'Oh yes. Immensely. The pain will propably render you unconcious - hence the vat of slime you\'re floating in!',12,0,100,1,0,0, 'Text 1'),
+(@ENTRY,1,0, 'That\'s how you know it\'s working.',12,0,100,1,0,0, 'Text 2'),
+(@ENTRY,2,0, 'Don\'t be ridiculous. Where would you even go if I did spare you? We just finished eradicating your civilization, remember?',12,0,100,1,0,0, 'Text 3'),
+(@ENTRY,3,0, 'Flattery will get you nowhere.',12,0,100,1,0,0, 'Text 3'),
+(@ENTRY,4,0, 'You idiot! That\'s What I\'m Doing Right Now!',12,0,100,1,0,0, 'Text 4'),
+(@ENTRY,5,0, 'I AM going to kill you. What\'s the rush?',12,0,100,1,0,0, 'Text 5');
 
 -- Scarlet Fleet Guardian
 SET @ENTRY := 28856;
@@ -730,19 +678,10 @@ SET @ENTRY := 28608;
 UPDATE `creature_template` SET `AIName`='SmartAI' WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,4,0,100,1,0,0,0,0,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 on Aggro'),
-(@ENTRY,0,1,0,4,1,100,1,0,0,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving on Aggro'),
-(@ENTRY,0,2,0,4,1,100,1,0,0,0,0,11,15498,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt on Aggro'),
-(@ENTRY,0,3,0,9,1,100,0,0,40,3400,4700,11,15498,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt'),
-(@ENTRY,0,4,0,9,1,100,0,40,100,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving when not in bolt Range'),
-(@ENTRY,0,5,0,9,1,100,0,10,15,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving at 15 Yards'),
-(@ENTRY,0,6,0,9,1,100,0,0,40,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving when in bolt Range'),
-(@ENTRY,0,7,0,3,1,100,0,0,15,0,0,22,2,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 2 at 15% Mana'),
-(@ENTRY,0,8,0,3,2,100,0,0,15,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving at 15% Mana'),
-(@ENTRY,0,9,0,3,2,100,0,30,100,100,100,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 When Mana is above 30%'),
-(@ENTRY,0,10,0,0,1,100,0,6000,7000,39000,45000,11,19725,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Turn Undead'),
-(@ENTRY,0,11,0,1,0,100,0,500,1000,600000,600000,11,13864,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Power Word: Fortitude on Spawn'),
-(@ENTRY,0,12,0,6,1,100,1,0,0,0,0,33,28763,0,0,0,0,0,7,0,0,0,0,0,0,0,'Kill Credit for Quest 12678');
+(@ENTRY,0,0,0,0,0,100,0,0,0,3400,4700,11,15498,64,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt'),
+(@ENTRY,0,1,0,0,0,100,0,6000,7000,39000,45000,11,19725,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Turn Undead'),
+(@ENTRY,0,2,0,1,0,100,0,500,1000,600000,600000,11,13864,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Power Word: Fortitude on Spawn'),
+(@ENTRY,0,3,0,6,0,100,1,0,0,0,0,33,28763,0,0,0,0,0,7,0,0,0,0,0,0,0,'Kill Credit for Quest 12678');
 
 -- Scarlet Lord Jesseriah McCree
 SET @ENTRY := 28964;
@@ -766,24 +705,17 @@ SET @ENTRY := 28610;
 UPDATE `creature_template` SET `AIName`='SmartAI' WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,4,0,100,1,0,0,0,0,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 on Aggro'),
-(@ENTRY,0,1,0,4,1,100,1,0,0,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving on Aggro'),
-(@ENTRY,0,2,0,4,1,100,1,0,0,0,0,11,6660,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Shoot on Aggro'),
-(@ENTRY,0,3,0,9,1,100,0,5,30,3500,4100,11,6660,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Shoot'),
-(@ENTRY,0,4,0,9,1,100,0,30,100,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving when not in Shoot Range'),
-(@ENTRY,0,5,0,9,1,100,0,9,15,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving at 15 Yards'),
-(@ENTRY,0,6,0,9,1,100,0,0,5,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving when not in Shoot Range'),
-(@ENTRY,0,7,0,9,1,100,0,5,30,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving when in Shoot Range'),
-(@ENTRY,0,8,0,0,1,100,0,8000,8000,25000,29000,11,18651,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Multi-Shot'),
-(@ENTRY,0,9,0,0,1,100,0,3000,3000,11000,12000,11,32915,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Raptor Strike'),
-(@ENTRY,0,10,0,4,1,100,1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Say on Aggro');
+(@ENTRY,0,0,0,0,0,100,0,0,0,2300,3900,11,6660,64,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Shoot'),
+(@ENTRY,0,1,0,9,0,100,0,5,30,25000,29000,11,18651,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Multi-Shot'),
+(@ENTRY,0,2,0,9,0,100,0,0,5,11000,12000,11,32915,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Raptor Strike'),
+(@ENTRY,0,3,0,4,0,100,1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Say Text on Aggro');
 -- NPC talk text insert
 SET @ENTRY := 28610;
 DELETE FROM `creature_text` WHERE `entry`=@ENTRY;
 INSERT INTO `creature_text` (`entry`,`groupid`,`id`,`text`,`type`,`language`,`probability`,`emote`,`duration`,`sound`,`comment`) VALUES
-(@ENTRY,0,0, 'You\'re not welcome in these lands.monster!',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,0,1, 'By the Light be cleansed!',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,0,2, 'Let the purging begin!',0,0,50,0,0,0, 'combat Say');
+(@ENTRY,0,0, 'You\'re not welcome in these lands.monster!',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,0,1, 'By the Light be cleansed!',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,0,2, 'Let the purging begin!',12,0,50,0,0,0, 'combat Say');
 
 -- Scarlet Crusader
 SET @ENTRY := 28940;
@@ -793,48 +725,29 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 (@ENTRY,0,0,0,0,0,100,0,5000,5000,12000,14000,11,52221,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Heroic Strike'),
 (@ENTRY,0,1,0,4,0,100,1,0,0,0,0,11,52566,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Shoot on Aggro');
 
-
 -- Scarlet Fleet Defender
 SET @ENTRY := 28834;
 UPDATE `creature_template` SET `AIName`='SmartAI' WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,4,0,100,1,0,0,0,0,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 on Aggro'),
-(@ENTRY,0,1,0,4,1,100,1,0,0,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving on Aggro'),
-(@ENTRY,0,2,0,4,1,100,1,0,0,0,0,11,52566,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Shoot on Aggro'),
-(@ENTRY,0,3,0,9,1,100,0,5,30,3500,4100,11,52566,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Shoot'),
-(@ENTRY,0,4,0,9,1,100,0,30,100,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving when not in Shoot Range'),
-(@ENTRY,0,5,0,9,1,100,0,9,15,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving at 15 Yards'),
-(@ENTRY,0,6,0,9,1,100,0,0,5,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving when not in Shoot Range'),
-(@ENTRY,0,7,0,9,1,100,0,5,30,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving when in Shoot Range'),
-(@ENTRY,0,8,0,6,0,100,1,0,0,0,0,33,28849,0,0,0,0,0,7,0,0,0,0,0,0,0,'Kill Credit for Quest 12701');
+(@ENTRY,0,0,0,0,0,100,0,0,0,2300,3900,11,52566,64,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Shoot'),
+(@ENTRY,0,1,0,6,0,100,1,0,0,0,0,33,28849,0,0,0,0,0,7,0,0,0,0,0,0,0,'Kill Credit for Quest 12701');
 
 -- Scarlet Preacher
  SET @ENTRY := 28939;
 UPDATE `creature_template` SET `AIName`='SmartAI' WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,4,0,100,1,0,0,0,0,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 on Aggro'),
-(@ENTRY,0,1,0,4,1,100,1,0,0,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving on Aggro'),
-(@ENTRY,0,2,0,4,1,100,1,0,0,0,0,11,15498,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt on Aggro'),
-(@ENTRY,0,3,0,9,1,100,0,0,40,3400,4700,11,15498,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt'),
-(@ENTRY,0,4,0,9,1,100,0,40,100,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving when not in bolt Range'),
-(@ENTRY,0,5,0,9,1,100,0,10,15,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving at 15 Yards'),
-(@ENTRY,0,6,0,9,1,100,0,0,40,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving when in bolt Range'),
-(@ENTRY,0,7,0,3,1,100,0,0,15,0,0,22,2,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 2 at 15% Mana'),
-(@ENTRY,0,8,0,3,2,100,0,0,15,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving at 15% Mana'),
-(@ENTRY,0,9,0,3,2,100,0,30,100,100,100,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 When Mana is above 30%'),
-(@ENTRY,0,10,0,2,2,100,1,0,15,0,0,22,3,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 3 at 15% HP'),
-(@ENTRY,0,11,0,2,3,100,1,0,15,0,0,25,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Flee at 15% HP'),
-(@ENTRY,0,12,0,7,3,100,1,0,0,0,0,22,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Reset on Evade'),
-(@ENTRY,0,13,0,2,3,100,1,0,15,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Say Text at 15% HP'),
-(@ENTRY,0,14,0,0,1,100,0,8000,8000,16000,18900,11,19725,0,0,0,0,0,5,0,0,0,0,0,0,0,'Cast Turn Undead'),
-(@ENTRY,0,15,0,1,0,100,0,500,1000,600000,600000,11,34809,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Holy Fury on Spawn');
+(@ENTRY,0,0,0,0,0,100,0,0,0,3400,4700,11,15498,64,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt'),
+(@ENTRY,0,1,2,2,0,100,1,0,15,0,0,25,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Flee at 15% HP'),
+(@ENTRY,0,2,0,61,0,100,1,0,15,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Say Text at 15% HP'),
+(@ENTRY,0,3,0,0,0,100,0,8000,8000,16000,18900,11,19725,0,0,0,0,0,5,0,0,0,0,0,0,0,'Cast Turn Undead'),
+(@ENTRY,0,4,0,1,0,100,0,500,1000,600000,600000,11,34809,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Holy Fury on Spawn');
 -- NPC talk text insert
 SET @ENTRY := 28939;
 DELETE FROM `creature_text` WHERE `entry`=@ENTRY;
 INSERT INTO `creature_text` (`entry`,`groupid`,`id`,`text`,`type`,`language`,`probability`,`emote`,`duration`,`sound`,`comment`) VALUES
-(@ENTRY,0,0, '%s attempts to run away in fear!',2,0,100,0,0,0, 'combat Flee');
+(@ENTRY,0,0, '%s attempts to run away in fear!',16,0,100,0,0,0, 'combat Flee');
 
 -- Scarlet Commander
 SET @ENTRY := 28936;
@@ -847,9 +760,9 @@ INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type
 SET @ENTRY := 28936;
 DELETE FROM `creature_text` WHERE `entry`=@ENTRY;
 INSERT INTO `creature_text` (`entry`,`groupid`,`id`,`text`,`type`,`language`,`probability`,`emote`,`duration`,`sound`,`comment`) VALUES
-(@ENTRY,0,0, 'Scourge lilth!DIE!',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,0,1, 'I will present your head to Abbendis myself!',0,0,50,0,0,0, 'combat Say'),
-(@ENTRY,0,2, 'The Crusade will be victorious!',0,0,50,0,0,0, 'combat Say');
+(@ENTRY,0,0, 'Scourge lilth!DIE!',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,0,1, 'I will present your head to Abbendis myself!',12,0,50,0,0,0, 'combat Say'),
+(@ENTRY,0,2, 'The Crusade will be victorious!',12,0,50,0,0,0, 'combat Say');
 
 -- Rampaging Abomination
 SET @ENTRY := 29115;
@@ -899,7 +812,6 @@ DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
 (@ENTRY,0,0,0,4,0,100,1,0,0,0,0,11,53345,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast Arrow Assault on Aggro'),
 (@ENTRY,0,1,0,6,0,100,1,0,0,0,0,33,29150,0,0,0,0,0,7,0,0,0,0,0,0,0,'Quest Credit on Death');
-
 
 -- Thassarian
 SET @ENTRY := 29200;
@@ -976,17 +888,7 @@ SET @ENTRY := 29181;
 UPDATE `creature_template` SET `AIName`='SmartAI' WHERE `entry`=@ENTRY;
 DELETE FROM `smart_scripts` WHERE `source_type`=0 AND `entryorguid`=@ENTRY;
 INSERT INTO `smart_scripts` (`entryorguid`,`source_type`,`id`,`link`,`event_type`,`event_phase_mask`,`event_chance`,`event_flags`,`event_param1`,`event_param2`,`event_param3`,`event_param4`,`action_type`,`action_param1`,`action_param2`,`action_param3`,`action_param4`,`action_param5`,`action_param6`,`target_type`,`target_param1`,`target_param2`,`target_param3`,`target_x`,`target_y`,`target_z`,`target_o`,`comment`) VALUES
-(@ENTRY,0,0,0,4,0,100,1,0,0,0,0,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 on Aggro'),
-(@ENTRY,0,1,0,4,1,100,1,0,0,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving on Aggro'),
-(@ENTRY,0,2,0,4,1,100,1,0,0,0,0,11,21807,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt on Aggro'),
-(@ENTRY,0,3,0,9,1,100,0,0,40,3400,4700,11,21807,0,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt'),
-(@ENTRY,0,4,0,9,1,100,0,40,100,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving when not in bolt Range'),
-(@ENTRY,0,5,0,9,1,100,0,10,15,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving at 15 Yards'),
-(@ENTRY,0,6,0,9,1,100,0,0,40,0,0,21,0,0,0,0,0,0,1,0,0,0,0,0,0,0,'Stop Moving when in bolt Range'),
-(@ENTRY,0,7,0,3,1,100,0,0,15,0,0,22,2,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 2 at 15% Mana'),
-(@ENTRY,0,8,0,3,2,100,0,0,15,0,0,21,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Start Moving at 15% Mana'),
-(@ENTRY,0,9,0,3,2,100,0,30,100,100,100,22,1,0,0,0,0,0,1,0,0,0,0,0,0,0,'Set Phase 1 When Mana is above 30%'),
-(@ENTRY,0,10,0,2,1,100,1,0,50,0,0,11,20664,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Rejuvenation at 50% HP'),
-(@ENTRY,0,11,0,0,1,100,0,8000,8000,26000,31000,11,20687,0,0,0,0,0,5,0,0,0,0,0,0,0,'Cast Starfall'),
-(@ENTRY,0,12,0,2,1,100,1,0,30,0,0,11,25817,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Tranquility at 30% HP');
-
+(@ENTRY,0,0,0,0,0,100,0,0,0,3400,4700,11,21807,64,0,0,0,0,2,0,0,0,0,0,0,0,'Cast bolt'),
+(@ENTRY,0,1,0,2,0,100,1,0,50,0,0,11,20664,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Rejuvenation at 50% HP'),
+(@ENTRY,0,2,0,0,0,100,0,8000,8000,26000,31000,11,20687,0,0,0,0,0,5,0,0,0,0,0,0,0,'Cast Starfall'),
+(@ENTRY,0,3,0,2,0,100,1,0,30,0,0,11,25817,0,0,0,0,0,1,0,0,0,0,0,0,0,'Cast Tranquility at 30% HP');
